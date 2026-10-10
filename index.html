@@ -1,0 +1,587 @@
+<!doctype html>
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>MF業務サポート 導入・更新ガイド</title>
+<meta content="MF業務サポート（Chrome拡張機能）の導入・更新方法と、バージョンごとの更新情報をまとめた社内向けページです。" name="description"/>
+<style>
+  :root {
+    --bg: #f7f8fa; --card: #fff; --text: #1d2433; --sub: #5b6577;
+    --accent: #1f6feb; --accent-soft: #e8f0fe; --line: #e1e5ec;
+    --warn-bg: #fff8e5; --warn-line: #f0d98a; --code-bg: #eef1f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #11151c; --card: #1a202b; --text: #e8ecf3; --sub: #a3adbf;
+      --accent: #6aa3ff; --accent-soft: #1d2a42; --line: #2b3342;
+      --warn-bg: #2b2613; --warn-line: #6b5a1c; --code-bg: #252d3b; }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font-family: "Hiragino Sans", "Yu Gothic UI", "Meiryo", system-ui, sans-serif; line-height: 1.8; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+  header.hero { padding: 44px 0 28px; text-align: center; background: var(--card); border-bottom: 1px solid var(--line); }
+  .hero h1 { margin: 8px 0; font-size: 1.8rem; }
+  .hero p { margin: 6px 0; color: var(--sub); font-size: .95rem; }
+  .badge { display: inline-block; background: var(--accent-soft); color: var(--accent);
+    border-radius: 999px; padding: 2px 12px; font-size: .8rem; font-weight: 600; }
+  nav.toc { position: sticky; top: 0; z-index: 10; background: var(--card); border-bottom: 1px solid var(--line); }
+  nav.toc .wrap { display: flex; gap: 4px; overflow-x: auto; padding: 8px 16px; }
+  nav.toc a { white-space: nowrap; padding: 4px 12px; border-radius: 6px; text-decoration: none;
+    color: var(--text); font-size: .9rem; }
+  nav.toc a:hover { background: var(--accent-soft); color: var(--accent); }
+  h2 { margin: 44px 0 14px; font-size: 1.4rem; padding-bottom: 6px; border-bottom: 2px solid var(--accent); scroll-margin-top: 56px; }
+  h3 { margin: 22px 0 6px; font-size: 1.05rem; }
+  .box { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin: 12px 0; }
+  .box h3:first-child { margin-top: 0; }
+  ol.steps { padding-left: 1.4em; margin: 8px 0; } ol.steps li { margin: 8px 0; }
+  code, .path { background: var(--code-bg); border-radius: 4px; padding: 1px 6px; font-family: Consolas, monospace; font-size: .88em; word-break: break-all; }
+  .path { display: block; padding: 8px 10px; margin: 8px 0; }
+  .note { background: var(--warn-bg); border: 1px solid var(--warn-line); border-radius: 8px; padding: 8px 14px; margin: 10px 0; font-size: .92rem; }
+  .note p { margin: 4px 0; }
+  details.ver { background: var(--card); border: 1px solid var(--line); border-radius: 10px; margin: 12px 0; }
+  details.ver > summary { cursor: pointer; padding: 12px 20px; font-weight: 700; list-style: none; }
+  details.ver > summary::-webkit-details-marker { display: none; }
+  details.ver > summary::before { content: "▸ "; color: var(--accent); }
+  details.ver[open] > summary::before { content: "▾ "; }
+  details.ver > summary small { font-weight: 400; color: var(--sub); margin-left: 8px; }
+  details.ver .body { padding: 0 20px 16px; border-top: 1px solid var(--line); }
+  .body h3 { color: var(--accent); }
+  .body h4 { margin: 12px 0 2px; font-size: .92rem; color: var(--sub); }
+  .body ul { margin: 4px 0; padding-left: 1.3em; font-size: .93rem; } .body li { margin: 2px 0; }
+  .body p { margin: 6px 0; font-size: .93rem; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); font-size: .9rem; }
+  th, td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  th { background: var(--accent-soft); }
+  td.v { white-space: nowrap; color: var(--sub); }
+  a { color: var(--accent); }
+  footer { margin: 48px 0 32px; text-align: center; color: var(--sub); font-size: .8rem; }
+
+  header.hero { background: #0b4a8f; color: #fff; text-align: left; padding: 48px 0 40px; border: 0; }
+  .hero h1 { color: #fff; font-size: 2rem; line-height: 1.4; } .hero p { color: #dbe8f7; }
+  .hero .badge { background: rgba(255,255,255,.18); color: #fff; }
+  .fgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; background: var(--code-bg); border-radius: 14px; padding: 18px; }
+  .fcard { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; text-decoration: none; color: inherit; }
+  .fcard:hover { border-color: var(--accent); }
+  .fcard .ico { font-size: 1.5rem; } .fcard h3 { margin: 6px 0 4px; font-size: 1rem; }
+  .fcard p { margin: 0; font-size: .85rem; color: var(--sub); line-height: 1.6; }
+  section.feature { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; margin-bottom: 16px; scroll-margin-top: 56px; }
+  section.feature h3 { margin: 0 0 6px; color: var(--accent); }
+  section.feature dl { margin: 8px 0; display: grid; grid-template-columns: 6em 1fr; gap: 2px 8px; font-size: .9rem; }
+  section.feature dt { color: var(--sub); font-weight: 600; } section.feature dd { margin: 0; }
+  figure { margin: 12px 0 0; } figure img { max-width: 100%; border: 1px solid var(--line); border-radius: 8px; }
+  figure .shot { border: 1px dashed var(--line); border-radius: 8px; padding: 28px 12px; text-align: center; color: var(--sub); font-size: .85rem; }
+  figcaption { font-size: .8rem; color: var(--sub); margin-top: 4px; }
+  @media print { nav.toc { display: none; } details.ver { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="wrap">
+<span class="badge">非公式・公開ガイド</span>
+<h1>MF業務サポート 導入・更新ガイド</h1>
+<p>MoneyForwardクラウド会計などの業務を助ける Chrome 拡張機能の、導入・更新方法と更新情報です。</p>
+<p>最新バージョン：<strong>v4.30.0</strong>　（旧名称：MoneyForward 監査ツール）</p>
+</div>
+</header>
+<nav class="toc"><div class="wrap">
+<a href="#list">できること</a>
+<a href="#guide">導入・更新方法</a>
+<a href="#detail">機能の詳細</a>
+<a href="#history">更新情報</a>
+<a href="#notice">ご案内</a>
+</div></nav>
+<main class="wrap">
+<h2 id="list">できること</h2>
+<div class="fgrid">
+<a class="fcard" href="#f-keshikomi"><span class="ico">✅</span><h3>消込チェック</h3><p>未消込の売掛金・買掛金等を、帳簿上で強調表示します。</p></a>
+<a class="fcard" href="#f-anomaly"><span class="ico">🔍</span><h3>いつもと違う仕訳</h3><p>取引先ごとの、普段と違う勘定科目・金額・税区分を知らせます。</p></a>
+<a class="fcard" href="#f-line-edit"><span class="ico">✏️</span><h3>仕訳帳 明細の一括修正</h3><p>選んだ明細行だけ、科目・部門・税区分・摘要をまとめて修正します。</p></a>
+<a class="fcard" href="#f-subitem"><span class="ico">➕</span><h3>補助科目クイック追加</h3><p>画面を離れずに、補助科目をすばやく追加します。</p></a>
+<a class="fcard" href="#f-aiprompt"><span class="ico">🤖</span><h3>AI監査プロンプト</h3><p>仕訳帳・総勘定元帳の内容を、AIに確認させる文章に整えて書き出します。</p></a>
+<a class="fcard" href="#f-monthly"><span class="ico">📈</span><h3>月次分析</h3><p>推移表と前期比較から、変動の大きい科目を抽出します。</p></a>
+<a class="fcard" href="#f-mgmt"><span class="ico">📊</span><h3>経営状況レポート</h3><p>推移表から、経営者向けのA3横・3枚のレポートを作ります。</p></a>
+<a class="fcard" href="#f-checklist"><span class="ico">📝</span><h3>決算チェックリスト</h3><p>勘定科目ごとに決算前の確認項目をチェックします。</p></a>
+<a class="fcard" href="#f-ledger"><span class="ico">↔️</span><h3>元帳の横開き表示</h3><p>推移表の金額をクリックして、元帳を右側に開きます。</p></a>
+<a class="fcard" href="#f-ratio"><span class="ico">％</span><h3>対売上高比率の表示</h3><p>損益計算書・製造原価報告書を、売上高に対する比率で表示します。</p></a>
+<a class="fcard" href="#f-dept-export"><span class="ico">🗂️</span><h3>部門別Excel／PDF一括出力</h3><p>全部門分の推移表を、まとめて出力します。</p></a>
+<a class="fcard" href="#f-voucher"><span class="ico">🧾</span><h3>証憑連続表示・突合タグ付け</h3><p>証憑を順に確認し、突合済みの仕訳にタグを付けます。</p></a>
+<a class="fcard" href="#f-dict"><span class="ico">📖</span><h3>摘要辞書</h3><p>短縮語から、登録済みの摘要を入力します。</p></a>
+<a class="fcard" href="#f-box"><span class="ico">📁</span><h3>クラウドBox 取引日の一括編集</h3><p>複数ファイルの取引日を、まとめて変更します。</p></a>
+<a class="fcard" href="#f-invoice"><span class="ico">📨</span><h3>クラウド請求書の操作補助</h3><p>請求書の切り替え、消費税欄の一括設定、保存、メール除外を補助します。</p></a>
+<a class="fcard" href="#f-home"><span class="ico">🏠</span><h3>ホームの連携サービス表示</h3><p>連携サービスの一覧を、画面の幅に合わせて広げます。</p></a>
+<a class="fcard" href="#f-rule"><span class="ico">⚙️</span><h3>自動仕訳ルールの登録補助</h3><p>連携サービスの明細から、ルール新規作成画面を開きます。</p></a>
+<a class="fcard" href="#f-settings"><span class="ico">🔧</span><h3>機能の設定</h3><p>使う機能だけを選べます。</p></a>
+</div>
+<!-- ============ 導入・更新方法 ============ -->
+<h2 id="guide">導入・更新方法</h2>
+<p>初めて使う方は「① 初めて導入する」、すでに使っている方は「② 2回目以降の更新」へ進んでください。</p>
+<details class="ver" open="">
+<summary>① 初めて導入する</summary>
+<div class="body">
+<ol class="steps">
+<li><strong>共有フォルダを開く。</strong>エクスプローラーで次のフォルダを開き、最新版の <code>mf-audit-tool_v○.○.○.zip</code> を自分のPCへコピーします（数字が一番新しいものを使います）。
+        <span class="path"></span></li>
+<li><strong>ZIPを展開する。</strong>ZIPを右クリックして「すべて展開」を押します。ZIPのままでは使えません。</li>
+<li><strong>フォルダを保存する。</strong>展開した「mf-audit-tool」フォルダを、デスクトップなど分かりやすい場所へ置きます。Chromeが今後も使うため、導入後に削除・移動・名前変更をしないでください。</li>
+<li><strong>拡張機能の管理画面を開く。</strong>Chromeのアドレスバーに <code>chrome://extensions/</code> と入力してEnterを押します。</li>
+<li><strong>デベロッパーモードをオンにする。</strong>画面右上のスイッチをオンにします。</li>
+<li><strong>拡張機能を読み込む。</strong>左上の「パッケージ化されていない拡張機能を読み込む」を押し、展開した「mf-audit-tool」フォルダを選びます。</li>
+<li><strong>導入を確認する。</strong>拡張機能の一覧に「MF業務サポート」（旧名称：MoneyForward 監査ツール）が出れば完了です。MoneyForwardを開いている場合は、画面を再読み込みしてください。</li>
+</ol>
+</div>
+</details>
+<details class="ver" open="">
+<summary>② 2回目以降の更新</summary>
+<div class="body">
+<p>拡張機能を登録し直す必要はありません。現在使っているフォルダの中身を最新版に差し替えます。</p>
+<ol class="steps">
+<li><strong>最新版ZIPを取得する。</strong>管理者が案内する保管場所から、一番新しい <code>mf-audit-tool_v○.○.○.zip</code> を自分のPCへコピーします。</li>
+<li><strong>ZIPを展開する。</strong>右クリックして「すべて展開」を押します。</li>
+<li><strong>使用中のフォルダを確認する。</strong><code>chrome://extensions/</code> で「MF業務サポート」の「詳細」を押し、読み込んでいるフォルダを確認します。初回導入時に保存した「mf-audit-tool」フォルダが対象です。</li>
+<li><strong>中身を上書きする。</strong>展開してできたフォルダの中身を、使用中の「mf-audit-tool」フォルダへコピーします。「同じ名前のファイルがあります」と出たら、最新版で上書きしてください。使用中のフォルダ自体は削除しないでください。</li>
+<li><strong>Chromeで再読み込みする。</strong><code>chrome://extensions/</code> で「MF業務サポート」の再読み込みボタン（丸い矢印）を押します。</li>
+<li><strong>MoneyForwardを再読み込みする。</strong>開いている画面も再読み込みします。</li>
+</ol>
+<div class="note"><p>ファイルを置き換えただけでは反映されません。必ず手順5の再読み込みまで行ってください。</p></div>
+</div>
+</details>
+<h3>更新できたかの確認</h3>
+<p>Chrome右上の拡張機能アイコンから「MF業務サポート」を開き、表示されたバージョンが共有フォルダの最新版と一致していれば完了です（例：共有ファイル v4.30.0、Chrome表示 v4.30.0）。</p>
+<h3>うまく更新できない場合</h3>
+<ol class="steps">
+<li>最新版ZIPを展開しているか</li>
+<li>使用中の「mf-audit-tool」フォルダへ上書きしたか</li>
+<li><code>chrome://extensions/</code> で再読み込みしたか</li>
+<li>MoneyForwardの画面も再読み込みしたか</li>
+</ol>
+<p>それでも反映されない場合は、開発担当者へ連絡してください。</p>
+
+<!-- ============ 機能の詳細 ============ -->
+<h2 id="detail">機能の詳細</h2>
+<section class="feature" id="f-keshikomi">
+<h3>消込チェック</h3>
+<dl><dt>対象画面</dt><dd>各種帳簿（総勘定元帳など）</dd><dt>操作方法</dt><dd>帳簿を開くと自動で動作。画面左下のボタンで操作</dd></dl>
+<p>消込ができていない金額が強調表示されます。左下の「×」で非表示にもできます。</p>
+<figure><img alt="「監査」画面の「消込チェック」から開きます" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/audit.jpg"/><figcaption>「監査」画面の「消込チェック」から開きます</figcaption></figure>
+</section>
+<section class="feature" id="f-anomaly">
+<h3>いつもと違う仕訳</h3>
+<dl><dt>対象画面</dt><dd>仕訳帳</dd><dt>操作方法</dt><dd>仕訳帳を開くと自動で動作</dd></dl>
+<p>取引先ごとの過去の傾向と比べ、「いつもと違う」仕訳を知らせます。入力ミスや科目の誤りの発見に役立ちます。</p>
+<figure><img alt="「監査」画面の「いつもと違う仕訳」から開きます" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/audit.jpg"/><figcaption>「監査」画面の「いつもと違う仕訳」から開きます</figcaption></figure>
+</section>
+<section class="feature" id="f-line-edit">
+<h3>仕訳帳 明細の一括修正</h3>
+<dl><dt>対象画面</dt><dd>会計帳簿 ＞ 仕訳帳</dd><dt>操作方法</dt><dd>「明細を一括修正」→ 絞り込み → 行にチェック → 変更内容を指定 → 確認して保存</dd></dl>
+<p>借方・貸方の明細行ごとに選べます。勘定科目・補助科目・部門・税区分・摘要を変更でき、結果画面や履歴（最大10回分・30日間）から元に戻せます。保存前後にMF上の仕訳を再取得して確認します。</p>
+<figure><img alt="明細の一括修正画面" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/line-edit.jpg"/><figcaption>明細の一括修正画面</figcaption></figure>
+</section>
+<section class="feature" id="f-subitem">
+<h3>補助科目クイック追加</h3>
+<dl><dt>対象画面</dt><dd>振替伝票入力など</dd><dt>操作方法</dt><dd>補助科目の追加ボタンから操作</dd></dl>
+<p>入力の途中でも、補助科目をその場で追加できます。</p>
+<figure><img alt="補助科目のクイック追加" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/subitem.png"/><figcaption>補助科目のクイック追加</figcaption></figure>
+</section>
+<section class="feature" id="f-aiprompt">
+<h3>AI監査プロンプト</h3>
+<dl><dt>対象画面</dt><dd>仕訳帳・総勘定元帳</dd><dt>操作方法</dt><dd>取引管理 ＞ 監査 ＞「AI監査プロンプト」で書き出してコピー → AIに貼り付け</dd></dl>
+<p>取引先名は初期状態で「A社」「B社」に伏せられます。対象期間はMF側の絞り込みに従います。前月比・前年同月比の判定はできません（比較は月次分析で）。貼り付けた時点で顧問先のデータがAIサービスに渡るため、事務所のルールに従ってください。</p>
+<figure><img alt="「監査」画面の「AI監査プロンプト」から開きます" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/audit.jpg"/><figcaption>「監査」画面の「AI監査プロンプト」から開きます</figcaption></figure>
+</section>
+<section class="feature" id="f-monthly">
+<h3>月次分析</h3>
+<dl><dt>対象画面</dt><dd>会計帳簿 ＞ 推移表／前期比較</dd><dt>操作方法</dt><dd>画面上の案内（1〜5）の「次にすること」に沿って進める</dd></dl>
+<p>損益計算書・製造原価報告書は、前月比または前年同月比が±20%を超えたものを抽出します。貸借対照表は変動額が一定以上（初期値100万円）のものです。AI用プロンプトの作成と、回答を貼り戻してのレポート出力（Word・書式付きコピー・印刷）まで行えます。前期比較は必ず「当月だけ」に絞ってください。</p>
+<figure><img alt="月次分析の画面" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/monthly.png"/><figcaption>月次分析の画面</figcaption></figure>
+</section>
+<section class="feature" id="f-mgmt">
+<h3>経営状況レポート</h3>
+<dl><dt>対象画面</dt><dd>会計帳簿 ＞ 推移表（MJS版は mjs-report.html）</dd><dt>操作方法</dt><dd>当期と前期の推移表を取り込む → AIの回答を貼り付け → 印刷</dd></dl>
+<p>主要な経営指標とグラフ、良いところ・改善ポイントを整理します。MJSの推移表CSVから作る単独HTML版（v4.29.0）もあり、MFを使っていない顧問先にも使えます。MJS版の印刷結果は未確認です。</p>
+<figure><img alt="経営状況レポートの出力例" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/mgmt.png"/><figcaption>経営状況レポートの出力例</figcaption></figure>
+</section>
+<section class="feature" id="f-checklist">
+<h3>決算チェックリスト</h3>
+<dl><dt>対象画面</dt><dd>取引管理 ＞ 監査</dd><dt>操作方法</dt><dd>「決算チェックリスト」を開く → 1問ずつ「OK／後で確認／該当なし」→ まとめ画面で見直し → 印刷</dd></dl>
+<p>23カテゴリ・102項目。回答は顧問先ごとに保存され、途中から再開できます。国税庁の要注意項目確認表等と決算実務をもとにした要約です。</p>
+<figure><img alt="取引管理 ＞ 監査 から開く「監査」画面（決算チェックリスト）" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/audit.jpg"/><figcaption>取引管理 ＞ 監査 から開く「監査」画面（決算チェックリスト）</figcaption></figure>
+</section>
+<section class="feature" id="f-ledger">
+<h3>元帳の横開き表示</h3>
+<dl><dt>対象画面</dt><dd>会計帳簿 ＞ 推移表／残高試算表</dd><dt>操作方法</dt><dd>金額をクリック。Ctrl（またはShift・中）クリックで別タブ</dd></dl>
+<p>日付・科目・補助科目・摘要・借方・貸方・残高を表示します。現金・預金は、日別の入金合計／出金合計／残高も出ます。設定からオフにできます。</p>
+<figure><img alt="元帳の横開き表示" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/ledger.jpg"/><figcaption>元帳の横開き表示</figcaption></figure>
+</section>
+<section class="feature" id="f-ratio">
+<h3>対売上高比率の表示</h3>
+<dl><dt>対象画面</dt><dd>会計帳簿 ＞ 推移表</dd><dt>操作方法</dt><dd>「売上高比率で表示」ボタンで切り替え</dd></dl>
+<p>人件費率や広告宣伝費率の月ごとの変化を確認できます。売上高合計を取得できない場合、ボタンは出ません。</p>
+<figure><img alt="売上高比率での表示" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/ratio.jpg"/><figcaption>売上高比率での表示</figcaption></figure>
+</section>
+<section class="feature" id="f-dept-export">
+<h3>部門別Excel／PDF一括出力</h3>
+<dl><dt>対象画面</dt><dd>会計帳簿 ＞ 推移表</dd><dt>操作方法</dt><dd>エクスポートボタン横の「Excel」または「PDF」</dd></dl>
+<p>Excelは部門ごとにシートを分けて出力します。PDFはMF純正のPDFを部門ごとに取得し、ZIPにまとめます。「補助科目を表示」の設定も反映されます。</p>
+<figure><img alt="部門別の一括出力ボタン" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/dept-export.png"/><figcaption>部門別の一括出力ボタン</figcaption></figure>
+</section>
+<section class="feature" id="f-voucher">
+<h3>証憑連続表示・突合タグ付け</h3>
+<dl><dt>対象画面</dt><dd>クラウド会計Plusの仕訳帳（タグ付けは仕訳帳・補助元帳・総勘定元帳）</dd><dt>操作方法</dt><dd>「証憑を連続表示」→ 前へ／次へ。タグ付けはマークをオンにして行をクリック</dd></dl>
+<p>PDFと画像の証憑に対応し、矢印キーでも切り替えられます。タグ付けで変更するのはタグだけで、締め済みの仕訳は変更されません。操作の履歴は残りません。</p>
+<figure><img alt="仕訳帳の操作ボタン（タグ付けのマークなど）" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/voucher.png"/><figcaption>仕訳帳の操作ボタン（タグ付けのマークなど）</figcaption></figure>
+</section>
+<section class="feature" id="f-dict">
+<h3>摘要辞書</h3>
+<dl><dt>対象画面</dt><dd>振替伝票入力・総勘定元帳の編集</dd><dt>操作方法</dt><dd>拡張機能アイコンから短縮語と摘要を登録 → 摘要欄に短縮語を入力 → 候補を選んでEnter</dd></dl>
+<p>毎月入力する摘要の手間を省け、担当者ごとの表記ゆれも減らせます。</p>
+<figure><img alt="摘要辞書の候補表示" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/dict.png"/><figcaption>摘要辞書の候補表示</figcaption></figure>
+</section>
+<section class="feature" id="f-box">
+<h3>クラウドBox 取引日の一括編集</h3>
+<dl><dt>対象画面</dt><dd>MoneyForward クラウドBox</dd><dt>操作方法</dt><dd>「取引日を一括編集」→ ファイルを選ぶ → 日付を指定 → 確認して実行</dd></dl>
+<p>成功・失敗の件数を確認できます。仕訳登録済みの書類は、仕訳の日付までは変わりません。元に戻す機能はありません。</p>
+<figure><img alt="取引日の一括編集" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/box.png"/><figcaption>取引日の一括編集</figcaption></figure>
+</section>
+<section class="feature" id="f-invoice">
+<h3>クラウド請求書の操作補助</h3>
+<dl><dt>対象画面</dt><dd>MoneyForward クラウド請求書</dd><dt>操作方法</dt><dd>前／次の請求書への切り替え、消費税欄の一括設定、Ctrl+S（MacはCmd+S）で保存、一括メール送信からの除外</dd></dl>
+<p>一括メール送信の除外は、対象から外すところまでです。拡張機能からメールを送ることはありません。</p>
+<figure><img alt="クラウド請求書の操作補助" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/invoice.png"/><figcaption>クラウド請求書の操作補助</figcaption></figure>
+</section>
+<section class="feature" id="f-home">
+<h3>ホームの連携サービス表示</h3>
+<dl><dt>対象画面</dt><dd>MoneyForward クラウド会計 ホーム</dd><dt>操作方法</dt><dd>自動で動作</dd></dl>
+<p>「他N件の連携をすべて表示」を自動で開き、3〜6列で表示します。口座やカードの中身・順番・リンクは変えません。</p>
+<figure><img alt="連携サービスの一覧" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/home.png"/><figcaption>連携サービスの一覧</figcaption></figure>
+</section>
+<section class="feature" id="f-rule">
+<h3>自動仕訳ルールの登録補助</h3>
+<dl><dt>対象画面</dt><dd>連携サービスから入力</dd><dt>操作方法</dt><dd>ルール未登録の青い明細の「ルール登録」ボタン</dd></dl>
+<p>金融機関・入金／出金・摘要（部分一致）を引き継ぎます。勘定科目の選択と最後の「作成」は利用者が行います。</p>
+<figure><img alt="ルール登録ボタン" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/rule.png"/><figcaption>ルール登録ボタン</figcaption></figure>
+</section>
+<section class="feature" id="f-settings">
+<h3>機能の設定</h3>
+<dl><dt>対象画面</dt><dd>拡張機能アイコン／MoneyForward左メニューの「機能の設定」</dd><dt>操作方法</dt><dd>表の「使う」で機能ごとにオン／オフ。変更後は画面を再読み込み</dd></dl>
+<p>各機能にアイコンと説明が付いています。「ご意見・要望」もここから送れます。</p>
+<figure><img alt="機能の設定画面" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/settings.jpg"/><figcaption>機能の設定画面</figcaption></figure>
+</section>
+<!-- ============ 更新情報 ============ -->
+<h2 id="history">更新情報</h2>
+<p>新しい順に並べています。各バージョンの見出しを押すと開きます。分かりにくい点や不具合、要望は「機能の設定」画面の「ご意見・要望」から送ってください（v4.30.0以降。それ以前は監査画面）。</p>
+<!-- 新しいバージョンは、この直下に <details class="ver"> を1つ追加する -->
+<details class="ver" open="">
+<summary>v4.30.0<small>v4.28.0 → v4.30.0</small></summary>
+<div class="body">
+<p>今回の主な追加は、MJS版経営状況レポートと「証憑突合タグ付け」です。</p>
+<h3>① MJS版 経営状況レポート（v4.29.0）</h3>
+<p>MJSの推移表CSVから、経営者向けの経営状況レポートを作れる単独HTML版を追加しました。MFクラウド会計を使っていない顧問先にも使え、決算整理列の読み込みにも対応しています。</p>
+<p>使い方：配布フォルダ内の <code>mjs-report.html</code> を開き、CSVを取り込みます。</p>
+<div class="note"><p>MJS版の印刷結果は未確認です。</p></div>
+<h3>② 証憑突合タグ付け（v4.30.0）</h3>
+<p>仕訳帳・補助元帳・総勘定元帳で、証憑と突合した仕訳にタグを付け、確認済みの仕訳を見分けられます。</p>
+<h4>使い方</h4>
+<ol class="steps">
+<li>対象期間を指定して検索する</li>
+<li>タグ付けのマークをオンにする</li>
+<li>タグ名を入力する（初期値：「証憑確認済」）</li>
+<li>突合済みの仕訳行をクリックするとタグが付く。もう一度クリックすると外れる</li>
+<li>操作を終えると画面が更新される</li>
+</ol>
+<h4>注意点</h4>
+<ul>
+<li>変更するのはタグだけです。金額・勘定科目・摘要などは変更しません。</li>
+<li>締め済みなどで編集できない仕訳は変更されません。</li>
+<li>タグ付け操作の履歴は残りません。</li>
+<li>仕訳帳・補助元帳・総勘定元帳での動作確認は開発元で済んでいます。配布先PCでの実機確認は別途必要です。</li>
+</ul>
+<h3>③ その他の改善</h3>
+<ul>
+<li>「ご意見・要望」を、監査画面から「機能の設定」画面へ移しました。</li>
+<li>監査画面から経営状況レポートへ進む案内を追加しました。</li>
+</ul>
+<h3>更新方法</h3>
+<p>最新版の配布用ZIPを展開し、実働フォルダのバックアップを取ってから必要ファイルを差し替えます。その後、<code>chrome://extensions/</code> で「MF業務サポート」を再読み込みし、開いているMoneyForwardの画面も再読み込みしてください。開発用GitHubフォルダとChrome実働フォルダは、自動で同期・上書きしないでください。</p>
+</div>
+</details>
+<details class="ver">
+<summary>v4.28.0<small>v4.20.0 → v4.28.0</small></summary>
+<div class="body">
+<p>クラウド請求書の操作補助、経営状況レポート、機能設定画面の改善、ホーム画面の表示改善、自動仕訳ルールの登録補助などを追加しました。</p>
+<h3>① クラウド請求書の操作補助</h3>
+<ul>
+<li>前の請求書／次の請求書への切り替え</li>
+<li>複数の請求書の消費税欄をまとめて設定</li>
+<li>Ctrl+S（MacはCmd+S）で保存</li>
+<li>一括メール送信の対象から、送らない請求書を除外</li>
+</ul>
+<p>除外機能は、対象から外すところまでを補助します。拡張機能からメールを送信することはありません。</p>
+<h3>② 経営状況レポート</h3>
+<p>推移表のデータから、経営者向けのレポートを作れます。</p>
+<ul>
+<li>当期と前期の推移表を取り込み</li>
+<li>主要な経営指標やグラフを作成</li>
+<li>良いところ・改善ポイントを整理</li>
+<li>A3横・3枚で印刷できるレポートを作成</li>
+<li>AIに渡す文章を作り、回答を手動で貼り付けて説明文を反映</li>
+</ul>
+<p>会計データを拡張機能からAIへ自動送信することはありません。取り込みからAI回答の反映、前期データ、A3横3枚の印刷まで実機で確認済みです。</p>
+<h3>③ 「機能の設定」を分かりやすくしました</h3>
+<p>機能のオン／オフ設定を「使う・画面・機能」の表形式に変え、各機能にアイコンと説明を付けました。MoneyForwardの左メニューにも「機能の設定」を追加しています。設定を変えたら画面を再読み込みしてください。</p>
+<h3>名称を「MF業務サポート」に変更</h3>
+<p>機能が監査以外にも増えたため、表示名を「MoneyForward 監査ツール」から「MF業務サポート」に変えました。名称だけの変更で、保存済みの設定や拡張機能のIDは変わりません。「取引管理 ＞ 監査」など機能名としての「監査」はそのままです。</p>
+<h3>④ ホームの連携サービスを見やすく表示</h3>
+<p>ホーム画面の「連携サービス」を、画面の幅に合わせて3〜6列で表示します。</p>
+<ul>
+<li>「他N件の連携をすべて表示」を自動で開きます。</li>
+<li>口座やカードの中身・順番・リンクは変更しません。</li>
+</ul>
+<p>実画面で、18件すべての表示と横並びを確認しています。</p>
+<h3>⑤ 明細から自動仕訳ルールを登録</h3>
+<p>「連携サービスから入力」で、自動仕訳ルールが未登録の青い明細に「ルール登録」ボタンを表示します。押すと新規作成画面が開き、次の内容を引き継ぎます。</p>
+<ul>
+<li>金融機関：明細の連携サービス</li>
+<li>入金／出金：明細の金額から判定</li>
+<li>明細の一致条件：摘要（部分一致）</li>
+</ul>
+<p>勘定科目などの選択と最後の「作成」は利用者が行います。拡張機能が自動でルールを作成・保存することはありません。</p>
+<h3>ご利用時の注意</h3>
+<div class="note">
+<p>MoneyForwardの画面構造に合わせて動く機能は、画面側の仕様変更で動かなくなることがあります。次の点は引き続き確認中です。</p>
+<ul>
+<li>「機能の設定」を拡張機能として読み込んだ状態での細かな表示</li>
+<li>ホーム画面の余白やカードの揃い方</li>
+<li>「ルール登録」から新規作成画面までの一連の動作と、作成後にルールが実際に効くこと</li>
+</ul>
+</div>
+</div>
+</details>
+<details class="ver">
+<summary>v4.20.0<small>v4.18.0 → v4.20.0</small></summary>
+<div class="body">
+<p>今回の主な追加は、仕訳帳の「明細（行）単位の一括修正」です。</p>
+<h3>① 仕訳帳「明細（行）単位の一括修正」</h3>
+<p>条件に合う仕訳を検索し、選んだ明細行だけをまとめて修正できます。同じ仕訳に複数行あっても、チェックした借方・貸方の行だけを変更できます。</p>
+<h4>修正できる項目</h4>
+<p>勘定科目 ／ 補助科目 ／ 部門 ／ 税区分 ／ 摘要</p>
+<h4>使い方</h4>
+<ol class="steps">
+<li>会計帳簿 ＞ 仕訳帳 を開く</li>
+<li>「明細を一括修正」を開く</li>
+<li>期間・仕訳番号・勘定科目・補助科目・部門・税区分・摘要などで絞り込む</li>
+<li>修正したい借方・貸方の行にチェックを入れる</li>
+<li>変更後の内容を指定して実行する</li>
+<li>確認画面で内容を確かめて保存する</li>
+</ol>
+<h4>ポイント</h4>
+<ul>
+<li>借方・貸方それぞれの明細行単位で選べます。</li>
+<li>勘定科目・補助科目・部門・税区分は、文字を入力して候補を絞り込めます。</li>
+<li>同じ仕訳の、選んでいない行は変更されません。</li>
+<li>保存前にMoneyForward上の仕訳を再取得し、別の操作で内容が変わっていないか確認します。保存後も再確認します。</li>
+</ul>
+<h3>② 一括修正の「元に戻す」</h3>
+<ul>
+<li>戻し方：完了後の結果画面の「元に戻す」、または修正履歴から対象を選んで「元に戻す」。</li>
+<li>履歴は顧問先ごとに管理し、最大10回分・30日間保存します。</li>
+<li>一括修正後にさらに変更された仕訳は、安全のため元に戻しません。</li>
+<li>修正前後の仕訳データをCSVとしてPCへ自動保存することはありません。ブラウザ内の履歴だけを使います。</li>
+</ul>
+<h3>③ 一括修正画面の操作性</h3>
+<ul>
+<li>MoneyForwardの一括編集画面に近い、専用の全幅画面にしました。</li>
+<li>借方／貸方を横並びにした、仕訳帳に近い一覧表示です。</li>
+<li>仕訳ごとにまとめて表示し、該当する行を強調します。</li>
+<li>期間を変えて再読み込みでき、検索条件と修正内容を分けて表示します。</li>
+</ul>
+<h3>④ 実機確認</h3>
+<p>実際のMoneyForward画面で、勘定科目・摘要・部門の変更、補助科目・部門での絞り込み、検索できるプルダウン、結果画面と履歴からの「元に戻す」を確認しています。3,344行ほどの仕訳帳でも、約6秒で読み込めました。</p>
+<h3>不具合修正</h3>
+<p>推移表の「売上高比率で表示」を使ったあとに月次分析をすると、比率の文字が金額の読み取りに混ざり、金額を誤認する不具合を直しました。現在は、推移表の元の金額部分だけを読み取ります。</p>
+</div>
+</details>
+<details class="ver">
+<summary>v4.18.0<small>v4.16.0 → v4.18.0</small></summary>
+<div class="body">
+<h3>① クラウドBox「取引日を一括編集」</h3>
+<p>複数のファイルの取引日を、まとめて同じ日付へ変更できます。</p>
+<h4>使い方</h4>
+<ol class="steps">
+<li>クラウドBoxのファイル一覧またはフォルダを開く</li>
+<li>「取引日を一括編集」を押す</li>
+<li>日付を変えたいファイルを選ぶ</li>
+<li>変更後の取引日を指定する</li>
+<li>「選んだ○件を YYYY/MM/DD に変更」を押して確認する</li>
+</ol>
+<ul>
+<li>現在のページに表示されているファイルから選べます。「すべて選択」にも対応しています。</li>
+<li>編集できないファイルは選べません。処理後に成功件数・失敗件数を確認できます。</li>
+<li>仕訳登録済みの書類は、取引日を変えても、登録済み仕訳の日付は自動では変わりません。</li>
+<li>元に戻す機能はありません。日付と対象ファイルを確認してから実行してください。</li>
+</ul>
+<h3>② 推移表「部門別Excel一括出力」</h3>
+<p>全部門の損益計算書・製造原価報告書を、まとめてExcelへ出力します。</p>
+<ol class="steps">
+<li>会計帳簿 ＞ 推移表 を開く</li>
+<li>必要に応じて「補助科目を表示」を設定する</li>
+<li>エクスポートボタン横の「Excel」を押す</li>
+<li>全部門のデータ取得が終わると、Excelが出力される</li>
+</ol>
+<p>部門ごとにシートを分けて出力し、「補助科目を表示」の設定も反映されます。</p>
+<h3>③ 推移表「部門別PDF一括出力」</h3>
+<p>エクスポートボタン横の「PDF」を押すと、全部門のMoneyForward純正PDFが、部門ごとにZIPへまとめて出力されます。</p>
+<h3>④ 「売上高比率で表示」ボタンの位置</h3>
+<p>「補助科目をすべて開く／閉じる」の右側へ移しました。切り替えは従来どおりです。</p>
+</div>
+</details>
+<details class="ver">
+<summary>v4.16.0<small>v4.15.0 → v4.16.0</small></summary>
+<div class="body">
+<h3>① 推移表の「対売上高比率」表示</h3>
+<p>損益計算書・製造原価報告書で、各科目の金額を「売上高に対する比率（％）」に切り替えられます。人件費率や広告宣伝費率が月ごとにどう変わるかを確認しやすくなります。</p>
+<ol class="steps">
+<li>会計帳簿 ＞ 推移表 を開く</li>
+<li>損益計算書または製造原価報告書を表示する</li>
+<li>画面上の切替ボタンで、金額表示と比率表示を切り替える</li>
+</ol>
+<p>売上高合計を取得できない場合は、切替ボタンは表示されません。</p>
+<h3>② 摘要辞書</h3>
+<p>振替伝票入力で、よく使う摘要を辞書に登録して呼び出せます。摘要欄に短縮語を入力すると、登録済みの摘要が候補に出て、Enterキーで入力できます。</p>
+<ol class="steps">
+<li>Chrome右上の拡張機能アイコンから、摘要辞書の管理画面を開き、短縮語と摘要を登録する（（操作動画は社内でご確認ください））</li>
+<li>振替伝票入力の摘要欄に短縮語を入力する</li>
+<li>候補を選び、Enterキーで摘要を入力する（（操作動画は社内でご確認ください）／（操作動画は社内でご確認ください））</li>
+</ol>
+<p>使用例：短縮語「リース」→ 摘要「○○リース　○月分リース料」。毎月の入力を省けるほか、担当者ごとの表記ゆれも減らせます。総勘定元帳から仕訳を編集する場合も使えます。</p>
+</div>
+</details>
+<details class="ver">
+<summary>v4.15.0<small>v4.14.1 → v4.15.0</small></summary>
+<div class="body">
+<h3>① 総勘定元帳・補助元帳の横開き表示</h3>
+<p>推移表・残高試算表の金額をクリックすると、該当する元帳が画面右側に横開きで表示されます。（（操作動画は社内でご確認ください））</p>
+<ol class="steps">
+<li>会計帳簿 ＞ 推移表 または 残高試算表 を開く</li>
+<li>確認したい金額をクリックする</li>
+<li>右側に元帳が表示される</li>
+<li>必要なら、パネル上部の「新しいタブで開く」で通常の元帳を開く</li>
+</ol>
+<ul>
+<li>通常クリックは横開き。Ctrl＋クリック、Shift＋クリック、中クリックは、通常の元帳を別タブで開きます。</li>
+<li>日付・科目・補助科目・摘要・借方・貸方・残高を中心に表示します。</li>
+<li>現金・預金の科目では、明細の下に日別の「入金合計／出金合計／残高」を出します。取引のない日も、前日の残高を繰り越して表示します。</li>
+<li>設定から個別にオフにできます。</li>
+</ul>
+<h3>② 機能ごとのオン／オフ設定</h3>
+<p>Chrome右上の拡張機能アイコンから、使う機能・使わない機能を切り替えられます。（（操作動画は社内でご確認ください））設定は保存され、チェックを外した機能は起動しません。</p>
+<p>対象：消込チェック／いつもと違う仕訳／AI監査プロンプト生成／補助科目クイック追加／月次財務分析／総勘定元帳の横開き表示／決算チェックリスト／証憑連続表示</p>
+<h3>③ 証憑連続表示（クラウド会計Plus限定）</h3>
+<p>クラウド会計Plusの仕訳帳で、証憑付きの仕訳の証憑を1画面で順に確認できます。PDFと画像に対応し、前へ／次へ、または矢印キーで切り替えます。</p>
+<ol class="steps">
+<li>クラウド会計Plusの仕訳帳を開く</li>
+<li>必要に応じて「証憑あり」で絞り込む</li>
+<li>「証憑を連続表示」を実行する</li>
+<li>前へ／次へ、または矢印キーで確認する</li>
+</ol>
+<p>証憑データを外部サービスへ送信する機能ではありません。</p>
+<h3>④ 消込チェックの表示・設定</h3>
+<ul>
+<li>操作ボタンを、画面左下に固定表示にしました。サイドバーの開閉に合わせて位置も調整します。</li>
+<li>左下の「×」、または「取引管理 ＞ 監査」の設定から、表示／非表示を切り替えられます。非表示の設定は保存され、非表示中は自動照合も止まります。</li>
+<li>消込チェック自体は、監査画面から引き続き実行できます。（（操作動画は社内でご確認ください））</li>
+</ul>
+</div>
+</details>
+<details class="ver">
+<summary>v4.14.1<small>v4.11.0 → v4.14.1</small></summary>
+<div class="body">
+<h3>① 決算チェックリスト</h3>
+<p>決算確定前に、仕訳・残高・決算整理の内容を勘定科目ごとに確認できます。法人向けに、現預金・売掛金・買掛金・仮払金・借入金・棚卸資産・固定資産・減価償却・未払費用・消費税・交際費・寄附金・役員給与・決算賞与など、23カテゴリ・102項目を用意しています。</p>
+<ol class="steps">
+<li>サイドバー「取引管理 ＞ 監査」から監査画面を開く</li>
+<li>「決算チェックリスト」を開く</li>
+<li>1問ずつ確認し、「OK／後で確認／該当なし」を選ぶ</li>
+<li>必要に応じて「未回答だけ進む」や科目移動を使う</li>
+<li>最後のまとめ画面で「後で確認」と未回答を見直す</li>
+<li>必要に応じて印刷する</li>
+</ol>
+<ul>
+<li>回答は顧問先ごとに保存され、途中で閉じても続きから再開できます。</li>
+<li>別の顧問先に切り替わると、安全のため保存を止めて警告します。顧問先を特定できない画面では開始しません。</li>
+<li>各項目に出典を表示しています。国税庁の要注意項目確認表等と決算実務をもとにした要約なので、迷う場合は原文を確認してください。</li>
+<li>現時点では、すべて手動確認です。画面はドラッグ移動・最小化ができます。</li>
+</ul>
+<h3>② 月次分析の改善</h3>
+<p>推移表と前期比較から変動の大きい科目を確認し、AI用プロンプトの作成からレポート出力までの流れを、分かりやすく整理しました。条件の違いの警告、事業所単位でのデータ管理、Word保存・書式付きコピー・印刷に対応しています。</p>
+<h3>③ 監査画面・操作性</h3>
+<p>「取引管理 ＞ 監査」から、消込チェック・いつもと違う仕訳・AI監査プロンプト・月次分析・決算チェックリストをまとめて開けます。MoneyForwardになじむ見た目にそろえ、ウィンドウ位置も調整しました。</p>
+<h3>④ ご意見・要望フォーム</h3>
+<p>不具合・改善要望・質問などを送れるGoogleフォームを開けます。顧問先名・仕訳・残高などの会計データが自動で送られることはなく、入力・添付した内容だけが送信されます。</p>
+</div>
+</details>
+<details class="ver">
+<summary>v4.11.0<small>v4.9.0 → v4.11.0</small></summary>
+<div class="body">
+<h3>① AI監査プロンプト書き出し</h3>
+<p>仕訳帳や総勘定元帳の内容を、AIに監査させるための文章（プロンプト）に整えて書き出します。</p>
+<ol class="steps">
+<li>仕訳帳または総勘定元帳を開く</li>
+<li>サイドバー「取引管理 ＞ 監査」から監査画面を開く</li>
+<li>「AI監査プロンプト」で書き出し、コピーする</li>
+<li>ClaudeやGeminiなどに貼り付ける</li>
+</ol>
+<ul>
+<li>取引先名は初期状態で「A社」「B社」に伏せられます。実名との対応表は画面にだけ出ます。</li>
+<li>対象期間はMF側の絞り込みに従うので、先に画面で期間を絞ってください。</li>
+<li>前月比・前年同月比の判定はできません。比較が必要なときは月次分析を使います。</li>
+</ul>
+<h3>② 月次分析（異常値の抽出とレポート）</h3>
+<p>推移表と前期比較を取り込んで突き合わせ、変動の大きい科目を自動で抽出します。AIに分析させて、レポートにするところまでできます。画面上の案内（1〜5）の「次にすること」に沿って進めてください。</p>
+<ol class="steps">
+<li>会計帳簿 ＞ 推移表 を開いて取り込む</li>
+<li>会計帳簿 ＞ 前期比較 を「当月だけ」に絞って取り込む</li>
+<li>抽出された異常値を確認する</li>
+<li>AIプロンプトを作ってAIに貼る</li>
+<li>AIの回答を貼り戻して、レポートを出力する</li>
+</ol>
+<h4>抽出の条件</h4>
+<ul>
+<li>損益計算書・製造原価報告書：前月比または前年同月比が±20%を超えたもの（金額の下限なし）</li>
+<li>貸借対照表：変動額が一定以上のもの（初期値100万円。画面上部で変更して「再判定」できます）</li>
+<li>合計行は対象外です。補助科目は判定せず、内訳として表示します。</li>
+</ul>
+<h4>レポートの出し方</h4>
+<p>Word形式で保存／書式ごとコピーしてGoogleドキュメントに貼り付け（Chromebookはこちらが確実）／印刷（PDF保存にも使えます）</p>
+<h4>気をつけること</h4>
+<ul>
+<li>前期比較は必ず「当月だけ」に絞ります。指定した月が、そのまま分析の対象月になります。</li>
+<li>推移表と前期比較で、税抜／税込・部門の設定をそろえてください。違うと警告が出ます。</li>
+<li>別の顧問先のデータが混ざらないよう、事業所が変わると取り込み済みのデータは自動で破棄されます。</li>
+<li>貸借対照表のしきい値（100万円）は仮の値です。会社の規模に合わせて調整してください。</li>
+</ul>
+<h3>変わっていないこと</h3>
+<p>消込チェック、いつもと違う仕訳、補助科目クイック追加の動作は変えていません。拡張機能が外部にデータを送ることはありません。MFの画面を読んでいるだけで、MFの内部システムには触っていません。</p>
+</div>
+</details>
+<div class="note">
+<p><strong>AIの利用について。</strong>拡張機能が顧問先のデータを自動で外部へ送ることはありません。AIへの貼り付けは手動です。ただし、貼り付けた時点で顧問先のデータが利用するAIサービスに渡ります。事務所のルールに従って判断してください。AIの回答は確認の材料です。内容の正しさは必ずご自身で確かめてください。</p>
+</div>
+<!-- ============ ご案内 ============ -->
+<h2 id="notice">本ツールに関する重要事項のご案内</h2>
+<div class="note">
+<ol class="steps">
+<li><strong>位置づけ。</strong>マネーフォワード社の公式サービスではありません。同社への問い合わせはしないでください。</li>
+<li><strong>動作について。</strong>MoneyForward側の仕様変更で、機能が使えなくなることがあります。</li>
+<li><strong>データの扱い。</strong>処理はお使いの端末内で完結し、データを外部へ自動送信しません。</li>
+<li><strong>拡張機能の配布。</strong>本ページは公開されていますが、拡張機能本体の配布は管理者の案内に従ってください。</li>
+<li><strong>連絡先。</strong>不具合や要望は、「機能の設定」画面の「ご意見・要望」、または開発担当者へお知らせください。</li>
+</ol>
+</div>
+</main>
+<footer>MF業務サポート（非公式ガイド） ／ MoneyForward は株式会社マネーフォワードの商標または登録商標です。</footer>
+</body>
+</html>
