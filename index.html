@@ -1,4 +1,5 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -76,6 +77,14 @@
   figure .shot { border: 1px dashed var(--line); border-radius: 8px; padding: 28px 12px; text-align: center; color: var(--sub); font-size: .85rem; }
   figcaption { font-size: .8rem; color: var(--sub); margin-top: 4px; }
   @media print { nav.toc { display: none; } details.ver { break-inside: avoid; } }
+
+/* 消込チェック：操作動画 */
+.tutorial-wrap{margin-top:14px} .tutorial-wrap h4{margin:12px 0 8px;font-size:.97rem}
+.tutorial-wrap video{display:block;width:100%;height:auto;max-height:65vh;border-radius:8px;background:#121a25;border:1px solid var(--line)}
+.tutorial-hint{font-size:.83rem;color:var(--sub);margin:8px 0}
+.tutorial-jumps{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 14px}
+.tutorial-jumps button{appearance:none;background:var(--accent-soft);color:var(--accent);border:1px solid var(--line);border-radius:7px;padding:8px 11px;font:inherit;font-size:.83rem;cursor:pointer}
+.tutorial-jumps button:focus-visible{outline:3px solid var(--accent)}
 </style>
 </head>
 <body>
@@ -159,14 +168,34 @@
 <li>MoneyForwardの画面も再読み込みしたか</li>
 </ol>
 <p>それでも反映されない場合は、開発担当者へ連絡してください。</p>
-
 <!-- ============ 機能の詳細 ============ -->
 <h2 id="detail">機能の詳細</h2>
 <section class="feature" id="f-keshikomi">
 <h3>消込チェック</h3>
-<dl><dt>対象画面</dt><dd>各種帳簿（総勘定元帳など）</dd><dt>操作方法</dt><dd>帳簿を開くと自動で動作。画面左下のボタンで操作</dd></dl>
-<p>消込ができていない金額が強調表示されます。左下の「×」で非表示にもできます。</p>
-<figure><img alt="「監査」画面の「消込チェック」から開きます" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/audit.jpg"/><figcaption>「監査」画面の「消込チェック」から開きます</figcaption></figure>
+<dl><dt>対象画面</dt><dd>補助元帳（総勘定元帳・各種出納帳でも使用できます）</dd>
+<dt>操作方法</dt><dd>帳簿を開き、画面左下の「監査…」と「自動」を確認します。黄色く強調された未消込金額と、左下の件数・金額を確認してください。</dd></dl>
+<p>計上（貸方）と支払（借方）を同額どうしで突き合わせ、対応する相手が見つからない金額を強調表示します。入出金明細や請求・支払情報と照合する機能ではありません。</p>
+<div class="tutorial-wrap">
+<h4>実際の操作動画（約60秒）</h4>
+<video aria-label="消込チェック操作動画" controls="" id="keshikomi-video" playsinline="" poster="img/keshikomi-poster.jpg" preload="metadata">
+<source src="videos/keshikomi.mp4" type="video/mp4"/>動画が再生できない場合は<a href="videos/keshikomi.mp4">操作動画を開いてください</a>。
+</video>
+<p class="tutorial-hint">動画はデモ事業所の架空データを使用しています。再生・停止・早送りができます。</p>
+<div aria-label="操作場面への移動" class="tutorial-jumps">
+<button data-seek="2" type="button">① 帳簿画面</button>
+<button data-seek="14" type="button">② 未消込の強調表示</button>
+<button data-seek="29" type="button">③ 金額と明細を確認</button>
+<button data-seek="44" type="button">④ 監査画面を確認</button>
+</div>
+<h4>動画の操作手順</h4>
+<ol class="steps">
+<li>「会計帳簿」から補助元帳を開き、対象の科目と期間を表示します。</li>
+<li>画面左下の「監査…」と「自動」の状態を確認します。</li>
+<li>黄色く表示された金額と、左下に表示される未消込の件数・金額を確認します。</li>
+<li>必要に応じて対象の明細や「取引管理 ＞ 監査」の消込チェックを確認します。</li>
+</ol>
+<p class="tutorial-hint">注意：黄色の表示は、同額の対応相手が見つからないことを示します。実際に未収・未払が残っているかは、帳簿や証憑で確認してください。</p>
+</div>
 </section>
 <section class="feature" id="f-anomaly">
 <h3>いつもと違う仕訳</h3>
@@ -583,5 +612,5 @@
 </div>
 </main>
 <footer>MF業務サポート（非公式ガイド） ／ MoneyForward は株式会社マネーフォワードの商標または登録商標です。</footer>
-</body>
+<script>document.querySelectorAll('#f-keshikomi [data-seek]').forEach(function(btn){btn.addEventListener('click',function(){var v=document.getElementById('keshikomi-video');if(!v)return;v.currentTime=Number(btn.dataset.seek);v.play().catch(function(){});});});</script></body>
 </html>
