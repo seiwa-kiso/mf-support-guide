@@ -117,7 +117,7 @@
 <a class="fcard" href="#f-ledger"><span class="ico">↔️</span><h3>元帳の横開き表示</h3><p>推移表の金額をクリックして、元帳を右側に開きます。</p></a>
 <a class="fcard" href="#f-ratio"><span class="ico">％</span><h3>対売上高比率の表示</h3><p>損益計算書・製造原価報告書を、売上高に対する比率で表示します。</p></a>
 <a class="fcard" href="#f-dept-export"><span class="ico">🗂️</span><h3>部門別Excel／PDF一括出力</h3><p>全部門分の推移表を、まとめて出力します。</p></a>
-<a class="fcard" href="#f-voucher"><span class="ico">🧾</span><h3>証憑連続表示・突合タグ付け</h3><p>証憑を順に確認し、突合済みの仕訳にタグを付けます。</p></a>
+<a class="fcard" href="#f-voucher"><span class="ico">🧾</span><h3>証憑連続表示（MF会計Plus）</h3><p>証憑を順に確認し、突合済みの仕訳にタグを付けます。</p></a>
 <a class="fcard" href="#f-dict"><span class="ico">📖</span><h3>摘要辞書</h3><p>短縮語から、登録済みの摘要を入力します。</p></a>
 <a class="fcard" href="#f-box"><span class="ico">📁</span><h3>クラウドBox 取引日の一括編集</h3><p>複数ファイルの取引日を、まとめて変更します。</p></a>
 <a class="fcard" href="#f-invoice"><span class="ico">📨</span><h3>クラウド請求書の操作補助</h3><p>請求書の切り替え、消費税欄の一括設定、保存、メール除外を補助します。</p></a>
@@ -202,25 +202,37 @@
 <dl><dt>対象画面</dt><dd>仕訳帳</dd><dt>操作方法</dt><dd>仕訳帳を開くと自動で動作</dd></dl>
 <p>取引先ごとの過去の傾向と比べ、「いつもと違う」仕訳を知らせます。入力ミスや科目の誤りの発見に役立ちます。</p>
 <figure><img alt="「監査」画面の「いつもと違う仕訳」から開きます" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/audit.jpg"/><figcaption>「監査」画面の「いつもと違う仕訳」から開きます</figcaption></figure>
-</section>
+<div class="tutorial-wrap" data-tutorial="f-anomaly"><h4>実際の操作動画</h4><video controls playsinline preload="metadata" aria-label="いつもと違う仕訳の操作動画"><source src="videos/%E3%81%84%E3%81%A4%E3%82%82%E3%81%A8%E9%81%95%E3%81%86%E4%BB%95%E8%A8%B3.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/%E3%81%84%E3%81%A4%E3%82%82%E3%81%A8%E9%81%95%E3%81%86%E4%BB%95%E8%A8%B3.mp4">動画を開く</a>。</video><p class="tutorial-hint">再生・一時停止・早送り・巻き戻しができます。各ボタンの移動時刻は確認用の暫定値です。</p><div class="tutorial-jumps" aria-label="操作場面への移動"><button type="button" data-seek="0" title="仕訳帳で対象の仕訳を表示する">1 仕訳帳で対象の仕訳を表示する</button>
+<button type="button" data-seek="10" title="「取引管理 ＞ 監査」から機能を開く">2 「取引管理 ＞ 監査」から機能を開く</button>
+<button type="button" data-seek="20" title="通常と異なる科目・金額・税区分を確認する">3 通常と異なる科目・金額・税区分を確認する</button>
+<button type="button" data-seek="30" title="強調された仕訳を原資料と照合する">4 強調された仕訳を原資料と照合する</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>仕訳帳で対象の仕訳を表示する</li><li>「取引管理 ＞ 監査」から機能を開く</li><li>通常と異なる科目・金額・税区分を確認する</li><li>強調された仕訳を原資料と照合する</li></ol></div></section>
 <section class="feature" id="f-line-edit">
 <h3>仕訳帳 明細の一括修正</h3>
 <dl><dt>対象画面</dt><dd>会計帳簿 ＞ 仕訳帳</dd><dt>操作方法</dt><dd>「明細を一括修正」→ 絞り込み → 行にチェック → 変更内容を指定 → 確認して保存</dd></dl>
 <p>借方・貸方の明細行ごとに選べます。勘定科目・補助科目・部門・税区分・摘要を変更でき、結果画面や履歴（最大10回分・30日間）から元に戻せます。保存前後にMF上の仕訳を再取得して確認します。</p>
 <figure><img alt="明細の一括修正画面" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/line-edit.jpg"/><figcaption>明細の一括修正画面</figcaption></figure>
-</section>
+<div class="tutorial-wrap" data-tutorial="f-line-edit"><h4>実際の操作動画</h4><video controls playsinline preload="metadata" aria-label="仕訳帳 明細の一括修正の操作動画"><source src="videos/%E4%BB%95%E8%A8%B3%E5%B8%B3%20%E6%98%8E%E7%B4%B0%E3%81%AE%E4%B8%80%E6%8B%AC%E4%BF%AE%E6%AD%A3.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/%E4%BB%95%E8%A8%B3%E5%B8%B3%20%E6%98%8E%E7%B4%B0%E3%81%AE%E4%B8%80%E6%8B%AC%E4%BF%AE%E6%AD%A3.mp4">動画を開く</a>。</video><p class="tutorial-hint">再生・一時停止・早送り・巻き戻しができます。各ボタンの移動時刻は確認用の暫定値です。</p><div class="tutorial-jumps" aria-label="操作場面への移動"><button type="button" data-seek="0" title="仕訳帳で対象の明細行を選ぶ">1 仕訳帳で対象の明細行を選ぶ</button>
+<button type="button" data-seek="10" title="「明細を一括修正」を開く">2 「明細を一括修正」を開く</button>
+<button type="button" data-seek="20" title="変更する項目を指定する">3 変更する項目を指定する</button>
+<button type="button" data-seek="30" title="変更を保存し結果を確認する">4 変更を保存し結果を確認する</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>仕訳帳で対象の明細行を選ぶ</li><li>「明細を一括修正」を開く</li><li>変更する項目を指定する</li><li>変更を保存し結果を確認する</li></ol></div></section>
 <section class="feature" id="f-subitem">
 <h3>補助科目クイック追加</h3>
 <dl><dt>対象画面</dt><dd>振替伝票入力など</dd><dt>操作方法</dt><dd>補助科目の追加ボタンから操作</dd></dl>
 <p>入力の途中でも、補助科目をその場で追加できます。</p>
 <figure><img alt="補助科目のクイック追加" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/subitem.png"/><figcaption>補助科目のクイック追加</figcaption></figure>
-</section>
+<div class="tutorial-wrap" data-tutorial="f-subitem"><h4>実際の操作動画</h4><video controls playsinline preload="metadata" aria-label="補助科目クイック追加の操作動画"><source src="videos/%E8%A3%9C%E5%8A%A9%E7%A7%91%E7%9B%AE%E3%82%AF%E3%82%A4%E3%83%83%E3%82%AF%E8%BF%BD%E5%8A%A0.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/%E8%A3%9C%E5%8A%A9%E7%A7%91%E7%9B%AE%E3%82%AF%E3%82%A4%E3%83%83%E3%82%AF%E8%BF%BD%E5%8A%A0.mp4">動画を開く</a>。</video><p class="tutorial-hint">再生・一時停止・早送り・巻き戻しができます。各ボタンの移動時刻は確認用の暫定値です。</p><div class="tutorial-jumps" aria-label="操作場面への移動"><button type="button" data-seek="0" title="振替伝票入力を開く">1 振替伝票入力を開く</button>
+<button type="button" data-seek="10" title="補助科目の欄にマウスを乗せる">2 補助科目の欄にマウスを乗せる</button>
+<button type="button" data-seek="20" title="表示された「＋」を押す">3 表示された「＋」を押す</button>
+<button type="button" data-seek="30" title="新しいタブで補助科目追加欄を開く">4 新しいタブで補助科目追加欄を開く</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>振替伝票入力を開く</li><li>補助科目の欄にマウスを乗せる</li><li>表示された「＋」を押す</li><li>新しいタブで補助科目追加欄を開く</li></ol></div></section>
 <section class="feature" id="f-aiprompt">
 <h3>AI監査プロンプト</h3>
 <dl><dt>対象画面</dt><dd>仕訳帳・総勘定元帳</dd><dt>操作方法</dt><dd>取引管理 ＞ 監査 ＞「AI監査プロンプト」で書き出してコピー → AIに貼り付け</dd></dl>
 <p>取引先名は初期状態で「A社」「B社」に伏せられます。対象期間はMF側の絞り込みに従います。前月比・前年同月比の判定はできません（比較は月次分析で）。貼り付けた時点で顧問先のデータがAIサービスに渡るため、事務所のルールに従ってください。</p>
 <figure><img alt="「監査」画面の「AI監査プロンプト」から開きます" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/audit.jpg"/><figcaption>「監査」画面の「AI監査プロンプト」から開きます</figcaption></figure>
-</section>
+<div class="tutorial-wrap" data-tutorial="f-aiprompt"><h4>実際の操作動画</h4><video controls playsinline preload="metadata" aria-label="AI監査プロンプトの操作動画"><source src="videos/AI%E7%9B%A3%E6%9F%BB%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/AI%E7%9B%A3%E6%9F%BB%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88.mp4">動画を開く</a>。</video><p class="tutorial-hint">再生・一時停止・早送り・巻き戻しができます。各ボタンの移動時刻は確認用の暫定値です。</p><div class="tutorial-jumps" aria-label="操作場面への移動"><button type="button" data-seek="0" title="仕訳帳などで対象期間を絞り込む">1 仕訳帳などで対象期間を絞り込む</button>
+<button type="button" data-seek="10" title="AI監査プロンプトの作成を開く">2 AI監査プロンプトの作成を開く</button>
+<button type="button" data-seek="20" title="匿名化を確認し文章をコピーする">3 匿名化を確認し文章をコピーする</button>
+<button type="button" data-seek="30" title="必要に応じて生成AIに貼り付ける">4 必要に応じて生成AIに貼り付ける</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>仕訳帳などで対象期間を絞り込む</li><li>AI監査プロンプトの作成を開く</li><li>匿名化を確認し文章をコピーする</li><li>必要に応じて生成AIに貼り付ける</li></ol></div></section>
 <section class="feature" id="f-monthly">
 <h3>月次分析</h3>
 <dl><dt>対象画面</dt><dd>会計帳簿 ＞ 推移表／前期比較</dd><dt>操作方法</dt><dd>画面上の案内（1〜5）の「次にすること」に沿って進める</dd></dl>
@@ -232,35 +244,50 @@
 <dl><dt>対象画面</dt><dd>会計帳簿 ＞ 推移表（MJS版は mjs-report.html）</dd><dt>操作方法</dt><dd>当期と前期の推移表を取り込む → AIの回答を貼り付け → 印刷</dd></dl>
 <p>主要な経営指標とグラフ、良いところ・改善ポイントを整理します。MJSの推移表CSVから作る単独HTML版（v4.29.0）もあり、MFを使っていない顧問先にも使えます。MJS版の印刷結果は未確認です。</p>
 <figure><img alt="経営状況レポートの出力例" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/mgmt.png"/><figcaption>経営状況レポートの出力例</figcaption></figure>
-</section>
+<div class="tutorial-wrap" data-tutorial="f-mgmt"><h4>実際の操作動画</h4><video controls playsinline preload="metadata" aria-label="経営状況レポートの操作動画"><source src="videos/%E7%B5%8C%E5%96%B6%E7%8A%B6%E6%B3%81%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/%E7%B5%8C%E5%96%B6%E7%8A%B6%E6%B3%81%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88.mp4">動画を開く</a>。</video><p class="tutorial-hint">再生・一時停止・早送り・巻き戻しができます。各ボタンの移動時刻は確認用の暫定値です。</p><div class="tutorial-jumps" aria-label="操作場面への移動"><button type="button" data-seek="0" title="推移表を月次で開く">1 推移表を月次で開く</button>
+<button type="button" data-seek="10" title="「取引管理 ＞ 監査」からレポートを開く">2 「取引管理 ＞ 監査」からレポートを開く</button>
+<button type="button" data-seek="20" title="AIへの文章をコピーし回答を貼り戻す">3 AIへの文章をコピーし回答を貼り戻す</button>
+<button type="button" data-seek="30" title="レポートをA3横で印刷する">4 レポートをA3横で印刷する</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>推移表を月次で開く</li><li>「取引管理 ＞ 監査」からレポートを開く</li><li>AIへの文章をコピーし回答を貼り戻す</li><li>レポートをA3横で印刷する</li></ol></div></section>
 <section class="feature" id="f-checklist">
 <h3>決算チェックリスト</h3>
 <dl><dt>対象画面</dt><dd>取引管理 ＞ 監査</dd><dt>操作方法</dt><dd>「決算チェックリスト」を開く → 1問ずつ「OK／後で確認／該当なし」→ まとめ画面で見直し → 印刷</dd></dl>
 <p>23カテゴリ・102項目。回答は顧問先ごとに保存され、途中から再開できます。国税庁の要注意項目確認表等と決算実務をもとにした要約です。</p>
 <figure><img alt="取引管理 ＞ 監査 から開く「監査」画面（決算チェックリスト）" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/audit.jpg"/><figcaption>取引管理 ＞ 監査 から開く「監査」画面（決算チェックリスト）</figcaption></figure>
-</section>
+<div class="tutorial-wrap" data-tutorial="f-checklist"><h4>実際の操作動画</h4><video controls playsinline preload="metadata" aria-label="決算チェックリストの操作動画"><source src="videos/%E6%B1%BA%E7%AE%97%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/%E6%B1%BA%E7%AE%97%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88.mp4">動画を開く</a>。</video><p class="tutorial-hint">再生・一時停止・早送り・巻き戻しができます。各ボタンの移動時刻は確認用の暫定値です。</p><div class="tutorial-jumps" aria-label="操作場面への移動"><button type="button" data-seek="0" title="「取引管理 ＞ 監査」を開く">1 「取引管理 ＞ 監査」を開く</button>
+<button type="button" data-seek="10" title="「チェックリストを開く」を押す">2 「チェックリストを開く」を押す</button>
+<button type="button" data-seek="20" title="科目ごとの確認項目を調べる">3 科目ごとの確認項目を調べる</button>
+<button type="button" data-seek="30" title="確認結果を手動でチェックする">4 確認結果を手動でチェックする</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>「取引管理 ＞ 監査」を開く</li><li>「チェックリストを開く」を押す</li><li>科目ごとの確認項目を調べる</li><li>確認結果を手動でチェックする</li></ol></div></section>
 <section class="feature" id="f-ledger">
 <h3>元帳の横開き表示</h3>
 <dl><dt>対象画面</dt><dd>会計帳簿 ＞ 推移表／残高試算表</dd><dt>操作方法</dt><dd>金額をクリック。Ctrl（またはShift・中）クリックで別タブ</dd></dl>
 <p>日付・科目・補助科目・摘要・借方・貸方・残高を表示します。現金・預金は、日別の入金合計／出金合計／残高も出ます。設定からオフにできます。</p>
 <figure><img alt="元帳の横開き表示" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/ledger.jpg"/><figcaption>元帳の横開き表示</figcaption></figure>
-</section>
+<div class="tutorial-wrap" data-tutorial="f-ledger"><h4>実際の操作動画</h4><video controls playsinline preload="metadata" aria-label="元帳の横開き表示の操作動画"><source src="videos/%E5%85%83%E5%B8%B3%E3%81%AE%E6%A8%AA%E9%96%8B%E3%81%8D%E8%A1%A8%E7%A4%BA.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/%E5%85%83%E5%B8%B3%E3%81%AE%E6%A8%AA%E9%96%8B%E3%81%8D%E8%A1%A8%E7%A4%BA.mp4">動画を開く</a>。</video><p class="tutorial-hint">再生・一時停止・早送り・巻き戻しができます。各ボタンの移動時刻は確認用の暫定値です。</p><div class="tutorial-jumps" aria-label="操作場面への移動"><button type="button" data-seek="0" title="推移表または残高試算表を開く">1 推移表または残高試算表を開く</button>
+<button type="button" data-seek="10" title="確認したい金額をクリックする">2 確認したい金額をクリックする</button>
+<button type="button" data-seek="20" title="右側に開いた元帳を確認する">3 右側に開いた元帳を確認する</button>
+<button type="button" data-seek="30" title="明細・日別残高を確認する">4 明細・日別残高を確認する</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>推移表または残高試算表を開く</li><li>確認したい金額をクリックする</li><li>右側に開いた元帳を確認する</li><li>明細・日別残高を確認する</li></ol></div></section>
 <section class="feature" id="f-ratio">
 <h3>対売上高比率の表示</h3>
 <dl><dt>対象画面</dt><dd>会計帳簿 ＞ 推移表</dd><dt>操作方法</dt><dd>「売上高比率で表示」ボタンで切り替え</dd></dl>
 <p>人件費率や広告宣伝費率の月ごとの変化を確認できます。売上高合計を取得できない場合、ボタンは出ません。</p>
 <figure><img alt="売上高比率での表示" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/ratio.jpg"/><figcaption>売上高比率での表示</figcaption></figure>
-</section>
+<div class="tutorial-wrap" data-tutorial="f-ratio"><h4>実際の操作動画</h4><video controls playsinline preload="metadata" aria-label="対売上高比率の表示の操作動画"><source src="videos/%E5%AF%BE%E5%A3%B2%E4%B8%8A%E9%AB%98%E6%AF%94%E7%8E%87%E3%81%AE%E8%A1%A8%E7%A4%BA.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/%E5%AF%BE%E5%A3%B2%E4%B8%8A%E9%AB%98%E6%AF%94%E7%8E%87%E3%81%AE%E8%A1%A8%E7%A4%BA.mp4">動画を開く</a>。</video><p class="tutorial-hint">再生・一時停止・早送り・巻き戻しができます。各ボタンの移動時刻は確認用の暫定値です。</p><div class="tutorial-jumps" aria-label="操作場面への移動"><button type="button" data-seek="0" title="推移表で損益計算書等を開く">1 推移表で損益計算書等を開く</button>
+<button type="button" data-seek="10" title="比率表示の切替ボタンを押す">2 比率表示の切替ボタンを押す</button>
+<button type="button" data-seek="20" title="売上高に対する比率を確認する">3 売上高に対する比率を確認する</button>
+<button type="button" data-seek="30" title="再度押して金額表示に戻す">4 再度押して金額表示に戻す</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>推移表で損益計算書等を開く</li><li>比率表示の切替ボタンを押す</li><li>売上高に対する比率を確認する</li><li>再度押して金額表示に戻す</li></ol></div></section>
 <section class="feature" id="f-dept-export">
 <h3>部門別Excel／PDF一括出力</h3>
 <dl><dt>対象画面</dt><dd>会計帳簿 ＞ 推移表</dd><dt>操作方法</dt><dd>エクスポートボタン横の「Excel」または「PDF」</dd></dl>
 <p>Excelは部門ごとにシートを分けて出力します。PDFはMF純正のPDFを部門ごとに取得し、ZIPにまとめます。「補助科目を表示」の設定も反映されます。</p>
 <figure><img alt="部門別の一括出力ボタン" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/dept-export.png"/><figcaption>部門別の一括出力ボタン</figcaption></figure>
-</section>
+<div class="tutorial-wrap" data-tutorial="f-dept-export"><h4>実際の操作動画（Excel）</h4><video controls playsinline preload="metadata" aria-label="部門別Excelの操作動画"><source src="videos/%E9%83%A8%E9%96%80%E5%88%A5Excel.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/%E9%83%A8%E9%96%80%E5%88%A5Excel.mp4">動画を開く</a>。</video><p class="tutorial-hint">再生・一時停止・早送り・巻き戻しができます。各ボタンの移動時刻は確認用の暫定値です。</p><div class="tutorial-jumps" aria-label="操作場面への移動"><button type="button" data-seek="0" title="会計帳簿 ＞ 推移表を開く">1 会計帳簿 ＞ 推移表を開く</button>
+<button type="button" data-seek="10" title="補助科目の表示設定を確認する">2 補助科目の表示設定を確認する</button>
+<button type="button" data-seek="20" title="エクスポート横の「Excel」を押す">3 エクスポート横の「Excel」を押す</button>
+<button type="button" data-seek="30" title="部門ごとのシートを確認する">4 部門ごとのシートを確認する</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>会計帳簿 ＞ 推移表を開く</li><li>補助科目の表示設定を確認する</li><li>エクスポート横の「Excel」を押す</li><li>部門ごとのシートを確認する</li></ol></div></section>
 <section class="feature" id="f-voucher">
 <h3>証憑連続表示・突合タグ付け</h3>
-<dl><dt>対象画面</dt><dd>クラウド会計Plusの仕訳帳（タグ付けは仕訳帳・補助元帳・総勘定元帳）</dd><dt>操作方法</dt><dd>「証憑を連続表示」→ 前へ／次へ。タグ付けはマークをオンにして行をクリック</dd></dl>
-<p>PDFと画像の証憑に対応し、矢印キーでも切り替えられます。タグ付けで変更するのはタグだけで、締め済みの仕訳は変更されません。操作の履歴は残りません。</p>
+<dl><dt>対象画面</dt><dd>クラウド会計Plusの仕訳帳</dd><dt>操作方法</dt><dd>「証憑を連続表示」→ 前へ／次へ</dd></dl>
+<p>PDFと画像の証憑に対応し、矢印キーでも切り替えられます。突合タグ付けとは別の機能です。</p>
 <figure><img alt="仕訳帳の操作ボタン（タグ付けのマークなど）" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/voucher.png"/><figcaption>仕訳帳の操作ボタン（タグ付けのマークなど）</figcaption></figure>
 </section>
 <section class="feature" id="f-dict">
@@ -268,7 +295,10 @@
 <dl><dt>対象画面</dt><dd>振替伝票入力・総勘定元帳の編集</dd><dt>操作方法</dt><dd>拡張機能アイコンから短縮語と摘要を登録 → 摘要欄に短縮語を入力 → 候補を選んでEnter</dd></dl>
 <p>毎月入力する摘要の手間を省け、担当者ごとの表記ゆれも減らせます。</p>
 <figure><img alt="摘要辞書の候補表示" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/dict.png"/><figcaption>摘要辞書の候補表示</figcaption></figure>
-</section>
+<div class="tutorial-wrap" data-tutorial="f-dict"><h4>実際の操作動画</h4><video controls playsinline preload="metadata" aria-label="摘要辞書の操作動画"><source src="videos/%E6%91%98%E8%A6%81%E8%BE%9E%E6%9B%B8.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/%E6%91%98%E8%A6%81%E8%BE%9E%E6%9B%B8.mp4">動画を開く</a>。</video><p class="tutorial-hint">再生・一時停止・早送り・巻き戻しができます。各ボタンの移動時刻は確認用の暫定値です。</p><div class="tutorial-jumps" aria-label="操作場面への移動"><button type="button" data-seek="0" title="仕訳入力画面を開く">1 仕訳入力画面を開く</button>
+<button type="button" data-seek="10" title="摘要辞書の操作を確認する">2 摘要辞書の操作を確認する</button>
+<button type="button" data-seek="20" title="登録・呼出しを操作する">3 登録・呼出しを操作する</button>
+<button type="button" data-seek="30" title="仕訳へ反映された内容を確認する">4 仕訳へ反映された内容を確認する</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>仕訳入力画面を開く</li><li>摘要辞書の操作を確認する</li><li>登録・呼出しを操作する</li><li>仕訳へ反映された内容を確認する</li></ol></div></section>
 <section class="feature" id="f-box">
 <h3>クラウドBox 取引日の一括編集</h3>
 <dl><dt>対象画面</dt><dd>MoneyForward クラウドBox</dd><dt>操作方法</dt><dd>「取引日を一括編集」→ ファイルを選ぶ → 日付を指定 → 確認して実行</dd></dl>
@@ -286,19 +316,28 @@
 <dl><dt>対象画面</dt><dd>MoneyForward クラウド会計 ホーム</dd><dt>操作方法</dt><dd>自動で動作</dd></dl>
 <p>「他N件の連携をすべて表示」を自動で開き、3〜6列で表示します。口座やカードの中身・順番・リンクは変えません。</p>
 <figure><img alt="連携サービスの一覧" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/home.png"/><figcaption>連携サービスの一覧</figcaption></figure>
-</section>
+<div class="tutorial-wrap" data-tutorial="f-home"><h4>実際の操作動画</h4><video controls playsinline preload="metadata" aria-label="ホームの連携サービス表示の操作動画"><source src="videos/%E3%83%9B%E3%83%BC%E3%83%A0%E3%81%AE%E9%80%A3%E6%90%BA%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%A1%A8%E7%A4%BA.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/%E3%83%9B%E3%83%BC%E3%83%A0%E3%81%AE%E9%80%A3%E6%90%BA%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%A1%A8%E7%A4%BA.mp4">動画を開く</a>。</video><p class="tutorial-hint">再生・一時停止・早送り・巻き戻しができます。各ボタンの移動時刻は確認用の暫定値です。</p><div class="tutorial-jumps" aria-label="操作場面への移動"><button type="button" data-seek="0" title="MFのホーム画面を開く">1 MFのホーム画面を開く</button>
+<button type="button" data-seek="10" title="連携サービスの表示を確認する">2 連携サービスの表示を確認する</button>
+<button type="button" data-seek="20" title="広がった一覧を確認する">3 広がった一覧を確認する</button>
+<button type="button" data-seek="30" title="必要に応じて元画面へ戻る">4 必要に応じて元画面へ戻る</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>MFのホーム画面を開く</li><li>連携サービスの表示を確認する</li><li>広がった一覧を確認する</li><li>必要に応じて元画面へ戻る</li></ol></div></section>
 <section class="feature" id="f-rule">
 <h3>自動仕訳ルールの登録補助</h3>
 <dl><dt>対象画面</dt><dd>連携サービスから入力</dd><dt>操作方法</dt><dd>ルール未登録の青い明細の「ルール登録」ボタン</dd></dl>
 <p>金融機関・入金／出金・摘要（部分一致）を引き継ぎます。勘定科目の選択と最後の「作成」は利用者が行います。</p>
 <figure><img alt="ルール登録ボタン" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/rule.png"/><figcaption>ルール登録ボタン</figcaption></figure>
-</section>
+<div class="tutorial-wrap" data-tutorial="f-rule"><h4>実際の操作動画</h4><video controls playsinline preload="metadata" aria-label="自動仕訳ルールの登録補助の操作動画"><source src="videos/%E8%87%AA%E5%8B%95%E4%BB%95%E8%A8%B3%E3%83%AB%E3%83%BC%E3%83%AB%E3%81%AE%E7%99%BB%E9%8C%B2%E8%A3%9C%E5%8A%A9.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/%E8%87%AA%E5%8B%95%E4%BB%95%E8%A8%B3%E3%83%AB%E3%83%BC%E3%83%AB%E3%81%AE%E7%99%BB%E9%8C%B2%E8%A3%9C%E5%8A%A9.mp4">動画を開く</a>。</video><p class="tutorial-hint">再生・一時停止・早送り・巻き戻しができます。各ボタンの移動時刻は確認用の暫定値です。</p><div class="tutorial-jumps" aria-label="操作場面への移動"><button type="button" data-seek="0" title="連携サービスから入力を開く">1 連携サービスから入力を開く</button>
+<button type="button" data-seek="10" title="青い勘定科目の「ルール登録」を押す">2 青い勘定科目の「ルール登録」を押す</button>
+<button type="button" data-seek="20" title="新しいタブの作成画面を確認する">3 新しいタブの作成画面を確認する</button>
+<button type="button" data-seek="30" title="金融機関・入出金・摘要の入力を確認する">4 金融機関・入出金・摘要の入力を確認する</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>連携サービスから入力を開く</li><li>青い勘定科目の「ルール登録」を押す</li><li>新しいタブの作成画面を確認する</li><li>金融機関・入出金・摘要の入力を確認する</li></ol></div></section>
 <section class="feature" id="f-settings">
 <h3>機能の設定</h3>
 <dl><dt>対象画面</dt><dd>拡張機能アイコン／MoneyForward左メニューの「機能の設定」</dd><dt>操作方法</dt><dd>表の「使う」で機能ごとにオン／オフ。変更後は画面を再読み込み</dd></dl>
 <p>各機能にアイコンと説明が付いています。「ご意見・要望」もここから送れます。</p>
 <figure><img alt="機能の設定画面" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'shot',textContent:'［画像準備中］'}))" src="img/settings.jpg"/><figcaption>機能の設定画面</figcaption></figure>
-</section>
+<div class="tutorial-wrap" data-tutorial="f-settings"><h4>実際の操作動画</h4><video controls playsinline preload="metadata" aria-label="機能の設定の操作動画"><source src="videos/%E6%A9%9F%E8%83%BD%E3%81%AE%E8%A8%AD%E5%AE%9A.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/%E6%A9%9F%E8%83%BD%E3%81%AE%E8%A8%AD%E5%AE%9A.mp4">動画を開く</a>。</video><p class="tutorial-hint">再生・一時停止・早送り・巻き戻しができます。各ボタンの移動時刻は確認用の暫定値です。</p><div class="tutorial-jumps" aria-label="操作場面への移動"><button type="button" data-seek="0" title="拡張機能の設定を開く">1 拡張機能の設定を開く</button>
+<button type="button" data-seek="10" title="対象の機能を探す">2 対象の機能を探す</button>
+<button type="button" data-seek="20" title="設定をオン・オフする">3 設定をオン・オフする</button>
+<button type="button" data-seek="30" title="設定後の表示を確認する">4 設定後の表示を確認する</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>拡張機能の設定を開く</li><li>対象の機能を探す</li><li>設定をオン・オフする</li><li>設定後の表示を確認する</li></ol></div></section>
 <!-- ============ 更新情報 ============ -->
 <h2 id="history">更新情報</h2>
 <p>新しい順に並べています。各バージョンの見出しを押すと開きます。分かりにくい点や不具合、要望は「機能の設定」画面の「ご意見・要望」から送ってください（v4.30.0以降。それ以前は監査画面）。</p>
@@ -612,5 +651,5 @@
 </div>
 </main>
 <footer>MF業務サポート（非公式ガイド） ／ MoneyForward は株式会社マネーフォワードの商標または登録商標です。</footer>
-<script>document.querySelectorAll('#f-keshikomi [data-seek]').forEach(function(btn){btn.addEventListener('click',function(){var v=document.getElementById('keshikomi-video');if(!v)return;v.currentTime=Number(btn.dataset.seek);v.play().catch(function(){});});});</script></body>
+<script>document.querySelectorAll('#f-keshikomi [data-seek]').forEach(function(btn){btn.addEventListener('click',function(){var v=document.getElementById('keshikomi-video');if(!v)return;v.currentTime=Number(btn.dataset.seek);v.play().catch(function(){});});});</script><script id="mf-guide-tutorials">document.querySelectorAll('.tutorial-wrap[data-tutorial]').forEach(function(w){var v=w.querySelector('video');w.querySelectorAll('[data-seek]').forEach(function(b){b.addEventListener('click',function(){var t=Number(b.dataset.seek);function go(){v.currentTime=Math.min(t,Math.max(0,(v.duration||t)-.1));v.play().catch(function(){});}if(v.readyState>=1)go();else v.addEventListener('loadedmetadata',go,{once:true});});});var back=w.querySelector('[data-rewind]');if(back)back.addEventListener('click',function(){v.currentTime=Math.max(0,v.currentTime-10);});});</script></body>
 </html>
