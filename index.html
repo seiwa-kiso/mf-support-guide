@@ -130,18 +130,19 @@
 </div>
 <!-- ============ 導入・更新方法 ============ -->
 <h2 id="guide">導入・更新方法</h2>
+<p>Googleドライブ上でZIPファイルを右クリックして「ダウンロード」を選び、PCに保存してください。Googleドライブ上での「コピーを作成」は不要です。</p>
 <p>配布ZIPは初回導入・既存環境の更新で共通です。初めて使う方は「① 初めて導入する」、すでに使っている方は「② 2回目以降の更新」へ進んでください。</p>
 <details class="ver" open="">
 <summary>① 初めて導入する</summary>
 <div class="body">
 <ol class="steps">
-<li><strong>共有フォルダを開く。</strong>次のGoogleドライブの配布フォルダを開き、最新版の <code>MF業務サポート_v○.○.○_初回導入・更新共通.zip</code> を自分のPCへコピーします（数字が一番新しいものを使います）。
+<li><strong>共有フォルダを開く。</strong>次のGoogleドライブの配布フォルダを開き、最新版の <code>MF業務サポート_v○.○.○_初回導入・更新共通.zip</code> を「ダウンロード」してPCに保存します（数字が一番新しいものを使います）。
         <span class="path"><a href="https://drive.google.com/drive/folders/1ReYhdObfsJOnxgKJ4Q_li9oy1NdMFmNa" target="_blank" rel="noopener noreferrer">Googleドライブ：拡張機能ファイル（配布フォルダ）</a></span></li>
-<li><strong>ZIPを展開する。</strong>ZIPを右クリックして「すべて展開」を押します。ZIPのままでは使えません。</li>
-<li><strong>フォルダを保存する。</strong>展開した「MF業務サポート_v○.○.○」フォルダを、デスクトップなど分かりやすい場所へ置きます。Chromeが今後も使うため、導入後に削除・移動・名前変更をしないでください。</li>
+<li><strong>ZIPを展開する。</strong>ダウンロードしたZIPを右クリックし、「すべて展開」を押します。ZIPのままではChromeに読み込めません。</li>
+<li><strong>フォルダを保存する。</strong>展開したフォルダ内の「MF業務サポート_v○.○.○」（中に <code>manifest.json</code> があるフォルダ）を、デスクトップなど分かりやすい場所へ置きます。Chromeが今後も使うため、導入後に削除・移動・名前変更をしないでください。</li>
 <li><strong>拡張機能の管理画面を開く。</strong>Chromeのアドレスバーに <code>chrome://extensions/</code> と入力してEnterを押します。</li>
 <li><strong>デベロッパーモードをオンにする。</strong>画面右上のスイッチをオンにします。</li>
-<li><strong>拡張機能を読み込む。</strong>左上の「パッケージ化されていない拡張機能を読み込む」を押し、展開した「MF業務サポート_v○.○.○」フォルダを選びます。</li>
+<li><strong>拡張機能を読み込む。</strong>左上の「パッケージ化されていない拡張機能を読み込む」を押し、<code>manifest.json</code> が直接入っている「MF業務サポート_v○.○.○」フォルダを選びます。ZIPやその外側のフォルダは選びません。</li>
 <li><strong>導入を確認する。</strong>拡張機能の一覧に「MF業務サポート」（旧名称：MoneyForward 監査ツール）が出れば完了です。MoneyForwardを開いている場合は、画面を再読み込みしてください。</li>
 </ol>
 </div>
@@ -151,8 +152,8 @@
 <div class="body">
 <p>拡張機能を登録し直す必要はありません。現在使っているフォルダの中身を最新版に差し替えます。</p>
 <ol class="steps">
-<li><strong>最新版ZIPを取得する。</strong><a href="https://drive.google.com/drive/folders/1ReYhdObfsJOnxgKJ4Q_li9oy1NdMFmNa" target="_blank" rel="noopener noreferrer">Googleドライブの配布フォルダ</a>から、一番新しい <code>MF業務サポート_v○.○.○_初回導入・更新共通.zip</code> を自分のPCへコピーします。</li>
-<li><strong>ZIPを展開する。</strong>右クリックして「すべて展開」を押します。</li>
+<li><strong>最新版ZIPを取得する。</strong><a href="https://drive.google.com/drive/folders/1ReYhdObfsJOnxgKJ4Q_li9oy1NdMFmNa" target="_blank" rel="noopener noreferrer">Googleドライブの配布フォルダ</a>から、一番新しい <code>MF業務サポート_v○.○.○_初回導入・更新共通.zip</code> を「ダウンロード」してPCに保存します。</li>
+<li><strong>ZIPを展開する。</strong>ダウンロードしたZIPを右クリックし、「すべて展開」を押します。</li>
 <li><strong>使用中のフォルダを確認する。</strong><code>chrome://extensions/</code> で「MF業務サポート」の「詳細」を押し、読み込んでいるフォルダを確認します。初回導入時にChromeへ読み込ませたフォルダが対象です。</li>
 <li><strong>中身を上書きする。</strong>展開してできたフォルダの中身を、使用中の拡張機能フォルダへコピーします。上書き前に使用中のフォルダ全体をバックアップしてください。「同じ名前のファイルがあります」と出たら、最新版で上書きしてください。使用中のフォルダ自体は削除しないでください。</li>
 <li><strong>Chromeで再読み込みする。</strong><code>chrome://extensions/</code> で「MF業務サポート」の再読み込みボタン（丸い矢印）を押します。</li>
