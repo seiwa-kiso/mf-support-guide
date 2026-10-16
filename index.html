@@ -112,10 +112,10 @@
 <a class="fcard" href="#f-line-edit"><span class="ico">✏️</span><h3>仕訳帳 明細の一括修正</h3><p>選んだ明細行だけ、科目・部門・税区分・摘要をまとめて修正します。</p></a>
 <a class="fcard" href="#f-subitem"><span class="ico">➕</span><h3>補助科目クイック追加</h3><p>画面を離れずに、補助科目をすばやく追加します。</p></a>
 <a class="fcard" href="#f-aiprompt"><span class="ico">🤖</span><h3>AI監査プロンプト</h3><p>仕訳帳・総勘定元帳の内容を、AIに確認させる文章に整えて書き出します。</p></a>
-<a class="fcard" href="#f-monthly"><span class="ico">📈</span><h3>月次分析</h3><p>推移表と前期比較から、変動の大きい科目を抽出します。</p></a>
+<a class="fcard" href="#f-monthly"><span class="ico">📈</span><h3>月次分析</h3><p>推移表と前期比較から、変動の大きい科目を抽出します。 操作動画あり。</p></a>
 <a class="fcard" href="#f-mgmt"><span class="ico">📊</span><h3>経営状況レポート</h3><p>推移表から、経営者向けのA3横・3枚のレポートを作ります。</p></a>
-<a class="fcard" href="#f-forecast"><span class="ico">📉</span><h3>決算予測</h3><p>推移表から、予測方法や調整事項を設定してA4横・2枚の決算予測資料を作ります。</p></a>
-<a class="fcard" href="#f-trial-print"><span class="ico">📄</span><h3>試算表の一括PDF出力</h3><p>残高試算表・前期比較・推移表・部門別集計表をまとめてA3横のPDFに出力します。</p></a>
+<a class="fcard" href="#f-forecast"><span class="ico">📉</span><h3>決算予測</h3><p>推移表から、予測方法や調整事項を設定してA4横・2枚の決算予測資料を作ります。 操作動画あり。</p></a>
+<a class="fcard" href="#f-trial-print"><span class="ico">📄</span><h3>試算表の一括PDF出力</h3><p>残高試算表・前期比較・推移表・部門別集計表をまとめてA3横のPDFに出力します。 操作動画あり。</p></a>
 <a class="fcard" href="#f-checklist"><span class="ico">📝</span><h3>決算チェックリスト</h3><p>勘定科目ごとに決算前の確認項目をチェックします。</p></a>
 <a class="fcard" href="#f-ledger"><span class="ico">↔️</span><h3>元帳の横開き表示</h3><p>推移表の金額をクリックして、元帳を右側に開きます。</p></a>
 <a class="fcard" href="#f-ratio"><span class="ico">％</span><h3>対売上高比率の表示</h3><p>損益計算書・製造原価報告書を、売上高に対する比率で表示します。</p></a>
@@ -261,6 +261,27 @@
 <dl><dt>対象画面</dt><dd>会計帳簿 ＞ 推移表／前期比較</dd><dt>操作方法</dt><dd>画面上の案内（1〜5）の「次にすること」に沿って進める</dd></dl>
 <p>損益計算書・製造原価報告書は、前月比または前年同月比が±20%を超えたものを抽出します。貸借対照表は変動額が一定以上（初期値100万円）のものです。AI用プロンプトの作成と、回答を貼り戻してのレポート出力（Word・書式付きコピー・印刷）まで行えます。前期比較は必ず「当月だけ」に絞ってください。</p>
 
+
+<div class="tutorial-wrap" data-tutorial="f-monthly" data-seek-mode="seconds">
+<h4>実際の操作動画</h4>
+<video controls playsinline preload="metadata" aria-label="月次分析の操作動画"><source src="videos/monthly-analysis-20261016.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/monthly-analysis-20261016.mp4">動画を開く</a>。</video>
+<p class="tutorial-hint">ボタンで実際の操作場面へ移動できます。再生・一時停止・10秒巻き戻しにも対応しています。</p>
+<div class="tutorial-jumps" aria-label="操作場面への移動">
+<button type="button" data-seek="5">1 監査から月次分析を開く</button>
+<button type="button" data-seek="15">2 推移表を取り込む</button>
+<button type="button" data-seek="28">3 前期比較・異常値を確認</button>
+<button type="button" data-seek="40">4 AIへ文章を貼り付ける</button>
+<button type="button" data-seek="120">5 AIの回答を貼り戻す</button>
+<button type="button" data-seek="190">6 印刷プレビューを確認</button>
+<button type="button" data-rewind="10">↶ 10秒戻す</button></div>
+<h4>動画の操作手順</h4><ol class="steps">
+<li>「取引管理 ＞ 監査」から月次分析を開きます。</li>
+<li>推移表を取り込み、案内に沿って前期比較へ進みます。</li>
+<li>前期比較を対象の当月だけに絞って取り込み、抽出された異常値を確認します。</li>
+<li>「AIプロンプトを作る」で文章を作り、コピーして生成AIへ貼り付けます。動画ではGeminiを使用しています。</li>
+<li>生成AIの回答をコピーして月次分析へ貼り戻し、レポートを確認します。</li>
+<li>レポートの印刷画面を開き、向き・ページと内容を確認します。</li>
+</ol></div>
 </section>
 <section class="feature" id="f-mgmt">
 <h3>経営状況レポート</h3>
@@ -293,6 +314,27 @@
 <li>「別ウィンドウで資料を開く」「開いて印刷（A4横）」「HTMLで保存」から出力します。印刷時はA4・横向き・2枚を確認します。</li>
 </ol>
 <div class="note"><p>予測方法の変更や別データの再取り込みで手修正の数値が消える場合があります。前期を取り込まない場合は「経過月平均」または「手入力」で予測します。現段階では法人税・住民税・事業税等の概算税額や留保金課税のページはありません。予測数値は実績ではないため、顧問先への説明前に確認してください。</p></div>
+
+<div class="tutorial-wrap" data-tutorial="f-forecast" data-seek-mode="seconds">
+<h4>実際の操作動画</h4>
+<video controls playsinline preload="metadata" aria-label="決算予測の操作動画"><source src="videos/forecast-20261016.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/forecast-20261016.mp4">動画を開く</a>。</video>
+<p class="tutorial-hint">ボタンで実際の操作場面へ移動できます。再生・一時停止・10秒巻き戻しにも対応しています。</p>
+<div class="tutorial-jumps" aria-label="操作場面への移動">
+<button type="button" data-seek="16">1 当期を取り込む</button>
+<button type="button" data-seek="30">2 前期を取り込む</button>
+<button type="button" data-seek="37">3 実績の最終月を選ぶ</button>
+<button type="button" data-seek="52">4 予測方法・数値を調整</button>
+<button type="button" data-seek="72">5 調整事項を入力</button>
+<button type="button" data-seek="114">6 資料を確認して印刷</button>
+<button type="button" data-rewind="10">↶ 10秒戻す</button></div>
+<h4>動画の操作手順</h4><ol class="steps">
+<li>推移表を月次で開き、「取引管理 ＞ 監査」から決算予測を開いて当期を取り込みます。</li>
+<li>前期比較が必要な場合は推移表を前期に切り替えて取り込みます。動画では別年度の画面へ移動しています。</li>
+<li>会社名・期を確認し、実績として扱う最終月を選びます。</li>
+<li>予測方法をまとめて、または科目ごとに選び、必要に応じて予測セルを直接修正します。</li>
+<li>調整事項の内容・科目・金額（千円）を入力します。</li>
+<li>資料を開いて2枚の内容を確認し、印刷画面でA4・横向きを確認します。</li>
+</ol></div>
 </section>
 <section class="feature" id="f-trial-print">
 <h3>試算表の一括PDF出力（v4.32.0〜）</h3>
@@ -309,6 +351,25 @@
 <li>ダウンロードフォルダに保存されたPDFを開き、会社名・期間・数値・出力漏れを確かめます。印刷する場合はA3横・実際のサイズを選びます。</li>
 </ol>
 <div class="note"><p>MFのストレージには処理中に作成した元のPDFが残ります。ほかの担当者が同じ会社で同時にPDFをエクスポートすると、取り違える可能性があるため、完成したPDFを必ず確認してください。取引先別推移表は対象外です。</p></div>
+
+<div class="tutorial-wrap" data-tutorial="f-trial-print" data-seek-mode="seconds">
+<h4>実際の操作動画</h4>
+<video controls playsinline preload="metadata" aria-label="試算表の一括PDF出力の操作動画"><source src="videos/trial-print-20261016.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/trial-print-20261016.mp4">動画を開く</a>。</video>
+<p class="tutorial-hint">ボタンで実際の操作場面へ移動できます。再生・一時停止・10秒巻き戻しにも対応しています。</p>
+<div class="tutorial-jumps" aria-label="操作場面への移動">
+<button type="button" data-seek="6">1 一括PDF出力を開く</button>
+<button type="button" data-seek="8">2 出力対象を選ぶ</button>
+<button type="button" data-seek="18">3 対象期間を設定</button>
+<button type="button" data-seek="31">4 PDF作成の進行を確認</button>
+<button type="button" data-seek="110">5 保存したPDFを確認</button>
+<button type="button" data-rewind="10">↶ 10秒戻す</button></div>
+<h4>動画の操作手順</h4><ol class="steps">
+<li>対象の帳簿画面で「試算表を一括PDF出力」を押します。</li>
+<li>出力する画面と補助科目の表示、出力する表を選びます。</li>
+<li>開始月・終了月と「金額がすべて0の表は出力しない」の設定を確認します。</li>
+<li>「PDFを作成して保存」を実行し、確認後は処理完了までタブを閉じずに待ちます。</li>
+<li>保存されたPDFを開き、会社名・期間・各表の内容と出力漏れを確認します。</li>
+</ol></div>
 </section>
 <section class="feature" id="f-checklist">
 <h3>決算チェックリスト</h3>
@@ -425,7 +486,8 @@
 <!-- ============ 更新情報 ============ -->
 <h2 id="history">更新情報</h2>
 <p>新しい順に並べています。各バージョンの見出しを押すと開きます。分かりにくい点や不具合、要望は「機能の設定」画面の「ご意見・要望」から送ってください（v4.30.0以降。それ以前は監査画面）。</p>
-<!-- 新しいバージョンは、この直下に <details class="ver"> を1つ追加する -->
+<!-- 新しいバージョンは、この直下に <p class="tutorial-hint">2026年10月16日：月次分析・決算予測・試算表の一括PDF出力に操作動画と場面移動ボタンを追加しました（ガイドのみの更新）。</p>
+<details class="ver"> を1つ追加する -->
 <details class="ver" open="">
 <summary>v4.32.0<small>v4.30.0 → v4.32.0（2026年10月16日）</small></summary>
 <div class="body">
@@ -768,5 +830,6 @@
 </div>
 </main>
 <footer>MF業務サポート（非公式ガイド） ／ MoneyForward は株式会社マネーフォワードの商標または登録商標です。</footer>
-<script>document.querySelectorAll('#f-keshikomi [data-seek]').forEach(function(btn){btn.addEventListener('click',function(){var v=document.getElementById('keshikomi-video');if(!v)return;v.currentTime=Number(btn.dataset.seek);v.play().catch(function(){});});});</script><script id="mf-guide-tutorials">document.querySelectorAll('.tutorial-wrap[data-tutorial]').forEach(function(w){var v=w.querySelector('video');w.querySelectorAll('[data-seek]').forEach(function(b){b.addEventListener('click',function(){var t=Number(b.dataset.seek);function go(){var buttons=Array.from(w.querySelectorAll("[data-seek]"));var ix=buttons.indexOf(b);var fractions=[0.02,0.25,0.50,0.75];var duration=v.duration;if(Number.isFinite(duration)&&duration>0){t=duration*fractions[Math.min(ix,fractions.length-1)];}v.currentTime=Math.max(0,t);v.play().catch(function(){});}if(v.readyState>=1)go();else v.addEventListener('loadedmetadata',go,{once:true});});});var back=w.querySelector('[data-rewind]');if(back)back.addEventListener('click',function(){v.currentTime=Math.max(0,v.currentTime-10);});});</script></body>
+<script>document.querySelectorAll('#f-keshikomi [data-seek]').forEach(function(btn){btn.addEventListener('click',function(){var v=document.getElementById('keshikomi-video');if(!v)return;v.currentTime=Number(btn.dataset.seek);v.play().catch(function(){});});});</script><script id="mf-guide-tutorials">document.querySelectorAll('.tutorial-wrap[data-tutorial]').forEach(function(w){var v=w.querySelector('video');w.querySelectorAll('[data-seek]').forEach(function(b){b.addEventListener('click',function(){var t=Number(b.dataset.seek);function go(){var buttons=Array.from(w.querySelectorAll("[data-seek]"));var ix=buttons.indexOf(b);var fractions=[0.02,0.25,0.50,0.75];var duration=v.duration;if(w.dataset.seekMode!=="seconds"&&Number.isFinite(duration)&&duration>0){t=duration*fractions[Math.min(ix,fractions.length-1)];}v.currentTime=Math.max(0,t);v.play().catch(function(){});}if(v.readyState>=1)go();else v.addEventListener('loadedmetadata',go,{once:true});});});var back=w.querySelector('[data-rewind]');if(back)back.addEventListener('click',function(){v.currentTime=Math.max(0,v.currentTime-10);});});</script></body>
 </html>
+
