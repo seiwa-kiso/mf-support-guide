@@ -113,7 +113,7 @@
 <span class="badge">非公式・公開ガイド</span>
 <h1>MF業務サポート 導入・更新ガイド</h1>
 <p>MoneyForwardクラウド会計などの業務を助ける Chrome 拡張機能の、導入・更新方法と更新情報です。</p>
-<p>最新バージョン：<strong>v4.32.0</strong>　（旧名称：MoneyForward 監査ツール）</p>
+<p>最新バージョン：<strong>v4.33.0</strong>　（旧名称：MoneyForward 監査ツール）</p>
 </div>
 </header>
 <nav class="toc"><div class="wrap">
@@ -125,7 +125,7 @@
 <a href="#notice">ご案内</a>
 </div></nav>
 <div class="guide-layout">
-<aside class="guide-sidebar" aria-label="機能一覧"><details id="sidebar-disclosure" open><summary>機能一覧 <span>22</span></summary><nav class="sidebar-content" aria-label="機能別の操作ガイド"><a class="sidebar-overview" href="#list">すべての機能を見る</a>
+<aside class="guide-sidebar" aria-label="機能一覧"><details id="sidebar-disclosure" open><summary>機能一覧 <span>23</span></summary><nav class="sidebar-content" aria-label="機能別の操作ガイド"><a class="sidebar-overview" href="#list">すべての機能を見る</a>
 <div class="sidebar-group"><h2>入力・修正<span>4</span></h2><ul>
 <li><a href="#f-line-edit" data-feature-link>仕訳帳 明細の一括修正</a></li>
 <li><a href="#f-subitem" data-feature-link>補助科目クイック追加</a></li>
@@ -145,9 +145,10 @@
 <li><a href="#f-mgmt" data-feature-link>経営状況レポート</a></li>
 <li><a href="#f-forecast" data-feature-link>決算予測</a></li>
 </ul></div>
-<div class="sidebar-group"><h2>帳簿表示・出力<span>5</span></h2><ul>
+<div class="sidebar-group"><h2>帳簿表示・出力<span>6</span></h2><ul>
 <li><a href="#f-trial-print" data-feature-link>試算表の一括PDF出力</a></li>
 <li><a href="#f-ledger" data-feature-link>元帳の横開き表示</a></li>
+<li><a href="#f-compound" data-feature-link>元帳の諸口の中身表示</a></li>
 <li><a href="#f-ratio" data-feature-link>対売上高比率の表示</a></li>
 <li><a href="#f-dept-export" data-feature-link>部門別Excel／PDF一括出力</a></li>
 <li><a href="#f-home" data-feature-link>ホームの連携サービス表示</a></li>
@@ -177,6 +178,7 @@
 <a class="fcard" href="#f-forecast"><span class="ico">📉</span><h3>決算予測</h3><p>推移表から、予測方法や調整事項を設定してA4横・2枚の決算予測資料を作ります。 操作動画あり。</p></a>
 <a class="fcard" href="#f-trial-print"><span class="ico">📄</span><h3>試算表の一括PDF出力</h3><p>残高試算表・前期比較・推移表・部門別集計表をまとめてA3横のPDFに出力します。 操作動画あり。</p></a>
 <a class="fcard" href="#f-ledger"><span class="ico">↔️</span><h3>元帳の横開き表示</h3><p>推移表の金額をクリックして、元帳を右側に開きます。</p></a>
+<a class="fcard" href="#f-compound"><span class="ico">🔎</span><h3>元帳の諸口の中身表示</h3><p>総勘定元帳・補助元帳で、諸口の内訳を行ごと・まとめて開閉します。</p></a>
 <a class="fcard" href="#f-ratio"><span class="ico">％</span><h3>対売上高比率の表示</h3><p>損益計算書・製造原価報告書を、売上高に対する比率で表示します。</p></a>
 <a class="fcard" href="#f-dept-export"><span class="ico">🗂️</span><h3>部門別Excel／PDF一括出力</h3><p>全部門分の推移表を、まとめて出力します。</p></a>
 <a class="fcard" href="#f-home"><span class="ico">🏠</span><h3>ホームの連携サービス表示</h3><p>連携サービスの一覧を、画面の幅に合わせて広げます。</p></a>
@@ -504,6 +506,18 @@
 <button type="button" data-seek="10" title="確認したい金額をクリックする">2 確認したい金額をクリックする</button>
 <button type="button" data-seek="20" title="右側に開いた元帳を確認する">3 右側に開いた元帳を確認する</button>
 <button type="button" data-seek="30" title="明細・日別残高を確認する">4 明細・日別残高を確認する</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>推移表または残高試算表を開く</li><li>確認したい金額をクリックする</li><li>右側に開いた元帳を確認する</li><li>明細・日別残高を確認する</li></ol></div></section>
+<section class="feature" id="f-compound">
+<h3>元帳の諸口の中身表示（v4.33.0〜）</h3>
+<dl><dt>対象画面</dt><dd>総勘定元帳・補助元帳</dd><dt>操作方法</dt><dd>諸口の行の摘要欄にある「▶ 諸口の中身を開く」。画面下の「すべて開く」「すべて閉じる」でも操作できます。</dd></dl>
+<p>相手勘定科目が「諸口」の行の下に、相手勘定科目・補助科目、摘要、借方／貸方の金額を、元帳と同じ列で表示します。「詳細」を1件ずつ開く手間を減らします。</p>
+<h4>使い方</h4><ol class="steps">
+<li>総勘定元帳または補助元帳を開き、「開始日」「終了日」を指定して検索します。</li>
+<li>摘要欄の「▶ 諸口の中身を開く」を押して、薄い青の内訳行を確認します。</li>
+<li>同じボタン（「▼ 諸口の中身を閉じる」）を押すと閉じます。画面下の「合計／差分」の左隣にある「すべて開く」「すべて閉じる」で、画面内の諸口をまとめて開閉できます。</li>
+<li>必要に応じて、開いた内訳行の金額をドラッグし、「合計／差分」で確認します。この集計は併用する拡張機能の機能です。</li>
+</ol><div class="note"><p>表示だけの機能で、仕訳は変更しません。期間の指定が必要です。件数によって読み込みに時間がかかります。表示できない場合は、従来の「詳細」で確認してください。拡張機能アイコンから個別にオフにできます。</p></div>
+<p class="tutorial-hint">総勘定元帳・補助元帳での表示・開閉・一括開閉、内訳の金額のドラッグと、件数の多い元帳での速さは開発者が実機確認済み（2026年10月20日）。</p>
+</section>
 <section class="feature" id="f-ratio">
 <h3>対売上高比率の表示</h3>
 <dl><dt>対象画面</dt><dd>会計帳簿 ＞ 推移表</dd><dt>操作方法</dt><dd>「売上高比率で表示」ボタンで切り替え</dd></dl>
@@ -576,6 +590,12 @@
 <p>新しい順に並べています。各バージョンの見出しを押すと開きます。分かりにくい点や不具合、要望は「機能の設定」画面の「ご意見・要望」から送ってください（v4.30.0以降。それ以前は監査画面）。</p>
 <!-- 新しいバージョンは、この直下に <p class="tutorial-hint">2026年10月16日：月次分析・決算予測・試算表の一括PDF出力に操作動画と場面移動ボタンを追加しました（ガイドのみの更新）。</p>
 <details class="ver"> を1つ追加する -->
+<details class="ver" open>
+<summary>v4.33.0<small>v4.32.0 → v4.33.0（2026年10月20日）</small></summary>
+<div class="body"><p><a href="https://drive.google.com/file/d/1m4NIH_fGpVeti7zWfV7XgiycL9PJBMsT/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">v4.33.0 初回導入・更新共通ZIPを開く（Driveでダウンロード）</a> ／ <a href="https://drive.google.com/file/d/1TeO6G4kgFRbG8A1NkTG7ME50fftl5afk/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">主な更新内容の紹介画像を見る</a></p>
+<h3>元帳の諸口の中身表示を追加</h3><p>総勘定元帳・補助元帳で、「諸口」の内訳をその場で確認できます。摘要欄のボタンで行ごとに開閉し、画面下の「すべて開く」「すべて閉じる」でまとめて操作できます。内訳は元帳と同じ列で薄い青の行として表示されます。</p>
+<p>開いた内訳行の金額も、ドラッグして併用する拡張機能の「合計／差分」で確認できます。表示だけの機能で仕訳は変更しません。開始日・終了日を指定して検索してください。表示できない場合は従来の「詳細」で確認してください。</p>
+<p>表示・開閉・一括開閉・金額のドラッグ・件数の多い元帳での速さは、開発者が実機確認済み（2026年10月20日）。</p><p><a href="#f-compound">詳しい使い方を見る</a></p></div></details>
 <details class="ver" open="">
 <summary>v4.32.0<small>v4.30.0 → v4.32.0（2026年10月16日）</small></summary>
 <div class="body">
@@ -936,3 +956,4 @@ window.addEventListener('hashchange',function(){mark(location.hash.slice(1));});
 mark(location.hash.slice(1));
 })();</script></body>
 </html>
+
