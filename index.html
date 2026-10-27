@@ -113,7 +113,7 @@
 <span class="badge">非公式・公開ガイド</span>
 <h1>MF業務サポート 導入・更新ガイド</h1>
 <p>MoneyForwardクラウド会計などの業務を助ける Chrome 拡張機能の、導入・更新方法と更新情報です。</p>
-<p>最新バージョン：<strong>v4.33.0</strong>　（旧名称：MoneyForward 監査ツール）</p>
+<p>最新バージョン：<strong>v4.34.0</strong>　（旧名称：MoneyForward 監査ツール）</p>
 </div>
 </header>
 <nav class="toc"><div class="wrap">
@@ -125,7 +125,7 @@
 <a href="#notice">ご案内</a>
 </div></nav>
 <div class="guide-layout">
-<aside class="guide-sidebar" aria-label="機能一覧"><details id="sidebar-disclosure" open><summary>機能一覧 <span>23</span></summary><nav class="sidebar-content" aria-label="機能別の操作ガイド"><a class="sidebar-overview" href="#list">すべての機能を見る</a>
+<aside class="guide-sidebar" aria-label="機能一覧"><details id="sidebar-disclosure" open><summary>機能一覧 <span>25</span></summary><nav class="sidebar-content" aria-label="機能別の操作ガイド"><a class="sidebar-overview" href="#list">すべての機能を見る</a>
 <div class="sidebar-group"><h2>入力・修正<span>4</span></h2><ul>
 <li><a href="#f-line-edit" data-feature-link>仕訳帳 明細の一括修正</a></li>
 <li><a href="#f-subitem" data-feature-link>補助科目クイック追加</a></li>
@@ -145,8 +145,10 @@
 <li><a href="#f-mgmt" data-feature-link>経営状況レポート</a></li>
 <li><a href="#f-forecast" data-feature-link>決算予測</a></li>
 </ul></div>
-<div class="sidebar-group"><h2>帳簿表示・出力<span>6</span></h2><ul>
+<div class="sidebar-group"><h2>帳簿表示・出力<span>8</span></h2><ul>
 <li><a href="#f-trial-print" data-feature-link>試算表の一括PDF出力</a></li>
+<li><a href="#f-compare-month" data-feature-link>前期比較の単月・累計表示</a></li>
+<li><a href="#f-storage-bulk" data-feature-link>ストレージの一括保存</a></li>
 <li><a href="#f-ledger" data-feature-link>元帳の横開き表示</a></li>
 <li><a href="#f-compound" data-feature-link>元帳の諸口の中身表示</a></li>
 <li><a href="#f-ratio" data-feature-link>対売上高比率の表示</a></li>
@@ -176,7 +178,9 @@
 <a class="fcard" href="#f-monthly"><span class="ico">📈</span><h3>月次分析</h3><p>推移表と前期比較から、変動の大きい科目を抽出します。 操作動画あり。</p></a>
 <a class="fcard" href="#f-mgmt"><span class="ico">📊</span><h3>経営状況レポート</h3><p>推移表から、経営者向けのA3横・3枚のレポートを作ります。</p></a>
 <a class="fcard" href="#f-forecast"><span class="ico">📉</span><h3>決算予測</h3><p>推移表から、予測方法や調整事項を設定してA4横・2枚の決算予測資料を作ります。 操作動画あり。</p></a>
-<a class="fcard" href="#f-trial-print"><span class="ico">📄</span><h3>試算表の一括PDF出力</h3><p>残高試算表・前期比較・推移表・部門別集計表をまとめてA3横のPDFに出力します。 操作動画あり。</p></a>
+<a class="fcard" href="#f-trial-print"><span class="ico">📄</span><h3>試算表の一括PDF出力</h3><p>画面ごとに出力する表を選び、まとめてA4横のPDFにします。旧版の操作動画あり。</p></a>
+<a class="fcard" href="#f-compare-month"><span class="ico">📊</span><h3>前期比較の単月・累計表示</h3><p>前期比較の単月と累計を左右に並べ、A4横で印刷できます。</p></a>
+<a class="fcard" href="#f-storage-bulk"><span class="ico">📂</span><h3>ストレージの一括保存</h3><p>チェックしたファイルを、選んだフォルダの中へまとめて保存します。</p></a>
 <a class="fcard" href="#f-ledger"><span class="ico">↔️</span><h3>元帳の横開き表示</h3><p>推移表の金額をクリックして、元帳を右側に開きます。</p></a>
 <a class="fcard" href="#f-compound"><span class="ico">🔎</span><h3>元帳の諸口の中身表示</h3><p>総勘定元帳・補助元帳で、諸口の内訳を行ごと・まとめて開閉します。</p></a>
 <a class="fcard" href="#f-ratio"><span class="ico">％</span><h3>対売上高比率の表示</h3><p>損益計算書・製造原価報告書を、売上高に対する比率で表示します。</p></a>
@@ -466,20 +470,21 @@
 <h3>試算表の一括PDF出力（v4.32.0〜）</h3>
 <dl><dt>対象画面</dt><dd>会計帳簿 ＞ 残高試算表／前期比較／推移表／部門別集計表</dd>
 <dt>開き方</dt><dd>画面右上「エクスポート」の左側「試算表を一括PDF出力」</dd>
-<dt>出力形式</dt><dd>MF純正PDFを結合した1つのA3横PDF</dd></dl>
-<p>出力対象の画面・表（貸借対照表／損益計算書／製造原価報告書）・開始月と終了月・画面ごとの補助科目表示を選んで、一括でPDF化します。税込・税抜の区分は事業者設定に従います。縦の帳票は同じ画面の2ページを左右に並べ、横長の帳票はA3横に拡大して収めます。金額がすべて0の表を省くこともできます。一部帳票の数値照合は開発者が実機で確認済みです。</p>
+<dt>出力形式</dt><dd>MF純正PDFを結合した1つのA4横PDF（v4.34.0〜）</dd></dl>
+<p>出力対象の画面・画面ごとの表（貸借対照表／損益計算書／製造原価報告書）・開始月と終了月・画面ごとの補助科目表示を選んで、一括でPDF化します。税込・税抜の区分は事業者設定に従います。縦の帳票は同じ画面の2ページを左右に並べ、横長の帳票はA4横1ページに収めます。設定画面は横長になり、列ごとの全選択・全解除にも対応しています。前期比較では、累計（選んだ期間）に加えて単月（終了月だけ）のMF純正PDFを追加できます。金額がすべて0の表を省くこともできます。一部帳票の数値照合は開発者が実機で確認済みです。</p>
 <h4>使い方</h4>
 <ol class="steps">
 <li>残高試算表・前期比較・推移表・部門別集計表のいずれかを開きます。必要な部門や決算整理仕訳の条件は、先に画面上で指定します。</li>
 <li>「試算表を一括PDF出力」を押します。</li>
-<li>出力する画面と表、開始月・終了月、画面ごとの補助科目表示を設定します。消費税の表示区分も確認します。</li>
+<li>出力する画面と画面ごとの表、開始月・終了月、画面ごとの補助科目表示を設定します。必要なら前期比較の単月も追加するチェックを入れます。消費税の表示区分も確認します。</li>
 <li>「PDFを作成して保存」を押して内容を確認し、OKを押します。処理中はタブを閉じたり別画面へ移動したりしないでください。</li>
-<li>ダウンロードフォルダに保存されたPDFを開き、会社名・期間・数値・出力漏れを確かめます。印刷する場合はA3横・実際のサイズを選びます。</li>
+<li>ダウンロードフォルダに保存されたPDFを開き、会社名・期間・数値・出力漏れを確かめます。印刷する場合はA4横・実際のサイズを選びます。</li>
 </ol>
-<div class="note"><p>MFのストレージには処理中に作成した元のPDFが残ります。ほかの担当者が同じ会社で同時にPDFをエクスポートすると、取り違える可能性があるため、完成したPDFを必ず確認してください。取引先別推移表は対象外です。</p></div>
+<div class="note"><p>更新後の初回は、出力する表の選択がすべてチェックされた状態に戻ります。保存前に選び直してください。縦の帳票は約71％に縮小されるため、A4で印刷した際の文字の読みやすさも確認してください。</p><p>MFのストレージには処理中に作成した元のPDFが残ります。ほかの担当者が同じ会社で同時にPDFをエクスポートすると、取り違える可能性があるため、完成したPDFを必ず確認してください。取引先別推移表は対象外です。</p></div>
 
 <div class="tutorial-wrap" data-tutorial="f-trial-print" data-seek-mode="seconds">
-<h4>実際の操作動画</h4>
+<h4>実際の操作動画（v4.32.0時点）</h4>
+<p class="tutorial-hint">動画は旧版です。v4.34.0では用紙がA4横になり、画面ごとの表選択・列ごとの全選択／全解除・前期比較の単月PDF追加に対応しています。現在の手順は上記をご覧ください。</p>
 <video controls playsinline preload="metadata" aria-label="試算表の一括PDF出力の操作動画"><source src="videos/trial-print-20261016.mp4" type="video/mp4">動画を再生できない場合は<a href="videos/trial-print-20261016.mp4">動画を開く</a>。</video>
 <p class="tutorial-hint">ボタンで実際の操作場面へ移動できます。再生・一時停止・10秒巻き戻しにも対応しています。</p>
 <div class="tutorial-jumps" aria-label="操作場面への移動">
@@ -496,6 +501,21 @@
 <li>「PDFを作成して保存」を実行し、確認後は処理完了までタブを閉じずに待ちます。</li>
 <li>保存されたPDFを開き、会社名・期間・各表の内容と出力漏れを確認します。</li>
 </ol></div>
+</section>
+
+<section class="feature" id="f-compare-month">
+<h3>前期比較の単月・累計表示（v4.34.0〜）</h3>
+<dl><dt>対象画面</dt><dd>会計帳簿 ＞ 前期比較</dd><dt>開き方</dt><dd>「単月＋累計を並べて表示」ボタン</dd><dt>印刷</dt><dd>A4横</dd></dl>
+<p>今の画面の検索条件を使い、左に単月（終了月だけ）、右に累計（開始月〜終了月）を並べて確認できます。前期比較画面に重ねて表示し、その表を印刷できます。</p>
+<h4>使い方（4ステップ）</h4><ol class="steps"><li>会計帳簿 ＞ 前期比較を開き、累計の開始月・終了月と部門などの条件を指定します。</li><li>「単月＋累計を並べて表示」を押します。</li><li>会社名・対象期間・単月と累計の数値を確認します。</li><li>必要に応じて「印刷（A4横）」を押し、A4・横・拡大縮小100％（なし）で印刷します。</li></ol>
+<div class="note"><p>機能の設定で「試算表の一括PDF出力」と「月次財務分析」をオンにしてください。単月は指定期間の終了月です。一括PDF出力で「単月も追加」を選ぶ機能とは別で、この表示は科目をそろえて左右に並べるものです。操作動画は準備中です。</p></div>
+</section>
+<section class="feature" id="f-storage-bulk">
+<h3>ストレージの一括保存（v4.34.0〜）</h3>
+<dl><dt>対象画面</dt><dd>MFクラウド会計 ＞ ストレージ</dd><dt>開き方</dt><dd>「一括削除」の隣の「選択したファイルをまとめてダウンロード」</dd></dl>
+<p>エクスポートしたPDFやCSVを、選んだフォルダの中に作る「ストレージ_日付_時刻」フォルダへまとめて保存します。ZIPの解凍は不要です。同じ名前は「 (2)」などを付けて保存し、上書きしません。</p>
+<h4>使い方（4ステップ）</h4><ol class="steps"><li>ストレージを開き、保存したいファイルの行にチェックを入れます。</li><li>「選択したファイルをまとめてダウンロード」を押します。</li><li>保存先のフォルダを選びます。21件以上の場合は表示される確認にも進みます。</li><li>結果を確認し、作成されたフォルダの中に必要なファイルが保存されているか確かめます。</li></ol>
+<div class="note"><p>対象は現在のページに表示されているファイル（最大50件）のチェック分です。ページをまたいだ一括選択はできません。フォルダ選択をキャンセルすると中止します。Chromeが保存先を選べないと案内した場合は、ダウンロード等の中に新しいフォルダを作り、それを選んでください。フォルダ選択に対応していないブラウザでは通常の個別ダウンロードになります。保存に失敗したファイルがあれば結果に表示されます。操作動画は準備中です。</p></div>
 </section>
 <section class="feature" id="f-ledger">
 <h3>元帳の横開き表示</h3>
@@ -589,6 +609,13 @@
 <h2 id="history">更新情報</h2>
 <p>新しい順に並べています。各バージョンの見出しを押すと開きます。分かりにくい点や不具合、要望は「機能の設定」画面の「ご意見・要望」から送ってください（v4.30.0以降。それ以前は監査画面）。</p>
 <!-- 新しいバージョンは、この直下に <p class="tutorial-hint">2026年10月16日：月次分析・決算予測・試算表の一括PDF出力に操作動画と場面移動ボタンを追加しました（ガイドのみの更新）。</p>
+<details class="ver" open>
+<summary>v4.34.0<small>v4.33.0 → v4.34.0（2026年10月27日）</small></summary>
+<div class="body"><p><a href="https://drive.google.com/file/d/1j7Cj9-8-SeRpwG0S4qgMTvBGk4AZFUXg/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">v4.34.0 初回導入・更新共通ZIPを開く（Driveでダウンロード）</a> ／ <a href="https://drive.google.com/file/d/1QNXGJQAl5K3t1C-9pXNssc2q53l134wO/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">主な更新内容の紹介画像を見る</a></p>
+<h3>① 試算表の一括PDF出力を改善</h3><p>用紙をA4横へ変更し、画面ごとに出力する表を選べるようにしました。横長の設定画面で列ごとの全選択・全解除ができます。前期比較の累計に加え、終了月だけの単月PDFも追加できます。更新後の初回は表の選択がすべてチェックに戻るため、出力前に見直してください。</p>
+<h3>② 前期比較の単月・累計表示</h3><p>「単月＋累計を並べて表示」ボタンで、左に単月、右に累計を表示してA4横で印刷できます。「月次財務分析」をオンにして使用してください。</p>
+<h3>③ ストレージの一括保存</h3><p>表示中のページで選んだPDF・CSVを、指定フォルダ内の新しいフォルダへまとめて保存できます。ZIPではありません。</p>
+<p>新機能の実機確認済み報告をGitHubの開発記録で確認しています。A4印刷時の細かい文字の読みやすさ、Chromeの保護フォルダを選べない場合の案内表示は引き続き確認事項です。詳しい使い方は各機能の説明をご覧ください。</p></div></details>
 <details class="ver"> を1つ追加する -->
 <details class="ver" open>
 <summary>v4.33.0<small>v4.32.0 → v4.33.0（2026年10月20日）</small></summary>
@@ -956,5 +983,6 @@ window.addEventListener('hashchange',function(){mark(location.hash.slice(1));});
 mark(location.hash.slice(1));
 })();</script></body>
 </html>
+
 
 
