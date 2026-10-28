@@ -113,7 +113,7 @@
 <span class="badge">非公式・公開ガイド</span>
 <h1>MF業務サポート 導入・更新ガイド</h1>
 <p>MoneyForwardクラウド会計などの業務を助ける Chrome 拡張機能の、導入・更新方法と更新情報です。</p>
-<p>最新バージョン：<strong>v4.34.0</strong>　（旧名称：MoneyForward 監査ツール）</p>
+<p>最新バージョン：<strong>v4.35.0</strong>　（旧名称：MoneyForward 監査ツール）</p>
 </div>
 </header>
 <nav class="toc"><div class="wrap">
@@ -125,7 +125,7 @@
 <a href="#notice">ご案内</a>
 </div></nav>
 <div class="guide-layout">
-<aside class="guide-sidebar" aria-label="機能一覧"><details id="sidebar-disclosure" open><summary>機能一覧 <span>25</span></summary><nav class="sidebar-content" aria-label="機能別の操作ガイド"><a class="sidebar-overview" href="#list">すべての機能を見る</a>
+<aside class="guide-sidebar" aria-label="機能一覧"><details id="sidebar-disclosure" open><summary>機能一覧 <span>27</span></summary><nav class="sidebar-content" aria-label="機能別の操作ガイド"><a class="sidebar-overview" href="#list">すべての機能を見る</a>
 <div class="sidebar-group"><h2>入力・修正<span>4</span></h2><ul>
 <li><a href="#f-line-edit" data-feature-link>仕訳帳 明細の一括修正</a></li>
 <li><a href="#f-subitem" data-feature-link>補助科目クイック追加</a></li>
@@ -155,11 +155,13 @@
 <li><a href="#f-dept-export" data-feature-link>部門別Excel／PDF一括出力</a></li>
 <li><a href="#f-home" data-feature-link>ホームの連携サービス表示</a></li>
 </ul></div>
-<div class="sidebar-group"><h2>その他・設定<span>4</span></h2><ul>
+<div class="sidebar-group"><h2>その他・設定<span>6</span></h2><ul>
 <li><a href="#f-box" data-feature-link>クラウドBox 取引日の一括編集</a></li>
 <li><a href="#f-invoice" data-feature-link>クラウド請求書の操作補助</a></li>
 <li><a href="#f-settings" data-feature-link>機能の設定</a></li>
 <li><a href="#f-taxsys" data-feature-link>TaxSys 科目・補助科目の取込</a></li>
+<li><a href="#f-taxsys-expand" data-feature-link>TaxSys 仕訳の自動展開と横幅調整</a></li>
+<li><a href="#f-taxsys-assist" data-feature-link>TaxSys 過去仕訳からルール入力</a></li>
 </ul></div>
 </nav></details></aside>
 <main class="wrap">
@@ -190,6 +192,8 @@
 <a class="fcard" href="#f-invoice"><span class="ico">📨</span><h3>クラウド請求書の操作補助</h3><p>請求書の切り替え、消費税欄の一括設定、保存、メール除外を補助します。</p></a>
 <a class="fcard" href="#f-settings"><span class="ico">🔧</span><h3>機能の設定</h3><p>使う機能だけを選べます。</p></a>
 <a class="fcard" href="#f-taxsys"><span class="ico">📥</span><h3>TaxSys 科目・補助科目の取込</h3><p>MFのCSVから独自科目を追加し、補助科目候補や税区分の取込ファイルを作ります。</p></a>
+<a class="fcard" href="#f-taxsys-expand"><span class="ico">📂</span><h3>TaxSys 仕訳の自動展開と横幅調整</h3><p>仕訳をまとめて開き、表を画面幅に調整します。初期設定はオフです。</p></a>
+<a class="fcard" href="#f-taxsys-assist"><span class="ico">🧩</span><h3>TaxSys 過去仕訳からルール入力</h3><p>CSVから過去の仕訳を選び、ルールの入力を補助します。初期設定はオフです。</p></a>
 </div>
 <!-- ============ 導入・更新方法 ============ -->
 <h2 id="guide">導入・更新方法</h2>
@@ -605,10 +609,54 @@
 </ol>
 <p class="tutorial-hint">CSVを使わず科目名を1行に1つずつ貼り付けて追加する方法にも対応します。税区分CSVの作成にはMFの勘定科目一覧が必要です。科目の一括追加はTaxSysの設定を書き換え、まとめて元に戻せません。追加する科目を必ず確認してください。</p>
 </section>
+<section class="feature" id="f-taxsys-expand">
+<h3>TaxSys 仕訳の自動展開と横幅調整（v4.35.0〜）</h3>
+<dl><dt>対象画面</dt><dd>TaxSys ＞ OCR出力結果</dd><dt>操作方法</dt><dd>機能の設定でオン →「仕訳を開く」</dd></dl>
+<p>各行の矢印を1件ずつ押す代わりに、仕訳をまとめて開けます。開いた仕訳の表を画面幅に合わせ、コード列を隠して見やすくします。仕訳の内容は変更しません。</p>
+<h4>使い方</h4><ol class="steps">
+<li>Chrome右上のMF業務サポートのアイコンから機能の設定を開き、「TaxSys 仕訳の自動展開と横幅調整」をオンにします。初期設定はオフです。必要に応じてTaxSysの画面を再読み込みします。</li>
+<li>TaxSysのOCR出力結果を開きます。ツールバーの「仕訳ルール適用」の右側付近にある「仕訳を開く」を押します。</li>
+<li>画面に表示された行の仕訳が開きます。スクロールで新しく表示される行も自動で開きます。表の幅調整とコード列の非表示は、この機能をオンにしている間は自動です。</li>
+<li>必要に応じて「ルール適用済を薄くする」を押します。適用済みの行は消えず、薄く表示されます。</li>
+<li>「仕訳を閉じる」を押すと自動展開をオフにし、開いている行を閉じます。その後に手で開いた行は閉じ直しません。</li>
+</ol>
+<div class="note"><p>動きが安定するまで、必要なときだけオンにしてください。画面の整え直しが続くと自動展開を一時停止し、理由を表示します。画面が不安定な場合は機能の設定でオフに戻してください。</p></div>
+<p class="tutorial-hint">開発者の記録では、自動展開・幅調整と、オフにしたあとに開いた行が残らないことを実機確認済み（2026年10月28日）。ツールバーの最終配置は実機未確認です。操作動画は準備でき次第追加します。</p>
+</section>
+<section class="feature" id="f-taxsys-assist">
+<h3>TaxSys 仕訳ルールを過去の元帳から入力（v4.35.0〜）</h3>
+<dl><dt>対象画面</dt><dd>TaxSys ＞ OCR出力結果 ＞ 仕訳ルールの新規作成</dd><dt>CSV</dt><dd>MFの総勘定元帳、またはMJSの仕訳日記帳（推奨）・元帳</dd></dl>
+<p>過去の仕訳を摘要や科目で検索して1件選び、相手側の科目・補助科目・部門・課税区分・税区分（税率）・摘要文言の入力を補助します。自動で保存はしません。</p>
+<h4>使い方</h4><ol class="steps">
+<li>機能の設定で「TaxSys 仕訳ルールを過去の元帳から入力」をオンにし、必要に応じてTaxSysの画面を再読み込みします。初期設定はオフです。</li>
+<li>MFの総勘定元帳、またはMJSの仕訳日記帳から、対象の口座に絞ったCSVを用意します。MJSの元帳には税区分・補助科目・部門の情報がないため、MJSは仕訳日記帳をおすすめします。</li>
+<li>TaxSysで対象の顧問先・口座のタブを開き、「仕訳ルールの新規作成」を開きます。「元帳CSVを読み込む」を押して、その口座のCSVを選びます。</li>
+<li>「過去仕訳から入力」を押し、摘要・科目などで検索します。「入金のみ」「出金のみ」でも絞れます。OCRの文字で見つからない場合は、言葉を短くして探します。</li>
+<li>使いたい過去仕訳を1件選びます。入金は貸方、出金は借方の相手側へ入力します。「摘要文言」は選んだ過去仕訳の摘要で上書きされます。</li>
+<li>入力された科目・補助科目・部門・課税区分・税率・摘要を確認します。入らなかった項目や、CSVに値がなく変更されなかった項目は画面で確認し、必要に応じて手で選び直します。</li>
+<li>内容を確かめてから、利用者がTaxSysの「保存」を押します。</li>
+</ol>
+<div class="note"><ul>
+<li>読み込んだCSVはこのパソコンのChromeに、顧問先・タブごとに保存します。外部へ自動送信しません。別の口座では、その口座のCSVを読み込んでください。</li>
+<li>相手を1つに決められない「諸口」の行は候補から除きます。CSVに情報がない項目は、現在の値が残るため、必ず確認してください。</li>
+<li>古い形式でCSVを取り込んでいる場合は、更新後に「元帳CSVを読み込む」で読み込み直してください。</li>
+<li>補助科目・部門は略称に似た候補を選ぶ場合があります。名前合わせの最終修正は実機未確認のため、別の候補が選ばれていないか確認してください。</li>
+<li>MJSの8%を軽減8%へ対応させる処理と、MFの税区分の読み替えは実機未確認です。特に8%には経過措置・軽減税率の違いがあるため、適切な区分を確認・選び直してください。</li>
+</ul></div>
+<p class="tutorial-hint">科目・補助科目・課税区分・摘要文言の入力、および課税区分の「(30)」「(40)」の選択肢は開発者の実機確認記録があります（2026年10月28日）。補助科目・部門の最終的な名前合わせ等は上記のとおり未確認です。操作動画は準備でき次第追加します。</p>
+</section>
 <!-- ============ 更新情報 ============ -->
 <h2 id="history">更新情報</h2>
 <p>新しい順に並べています。各バージョンの見出しを押すと開きます。分かりにくい点や不具合、要望は「機能の設定」画面の「ご意見・要望」から送ってください（v4.30.0以降。それ以前は監査画面）。</p>
-<!-- 新しいバージョンは、この直下に <p class="tutorial-hint">2026年10月16日：月次分析・決算予測・試算表の一括PDF出力に操作動画と場面移動ボタンを追加しました（ガイドのみの更新）。</p>
+<!-- 新しいバージョンは、この直下に追加する -->
+<details class="ver" open>
+<summary>v4.35.0<small>v4.34.0 → v4.35.0（2026年10月28日）</small></summary>
+<div class="body"><p><a href="https://drive.google.com/file/d/16EHBCg0fOKkDJTHUZqO7OaFyItuR7a8e/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">v4.35.0 初回導入・更新共通ZIPを開く（Driveでダウンロード）</a> ／ <a href="https://drive.google.com/file/d/1Mmkv5rZz7xzjXgJZorYH9k2cGUHKDbTQ/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">主な更新内容の紹介画像を見る</a></p>
+<h3>① TaxSys 仕訳の自動展開と横幅調整</h3><p>OCR出力結果の仕訳をまとめて開閉し、表を画面幅に調整します。「ルール適用済を薄くする」で確認したい行を見つけやすくします。仕訳の内容は変更しません。<a href="#f-taxsys-expand">詳しい使い方</a></p>
+<h3>② TaxSys 過去仕訳からルール入力</h3><p>MFの総勘定元帳、またはMJSの仕訳日記帳などのCSVから過去の仕訳を検索し、ルールの入力を補助します。摘要文言は選んだ仕訳の摘要で上書きします。入力結果を確認してから、利用者が保存してください。<a href="#f-taxsys-assist">詳しい使い方</a></p>
+<div class="note"><p>どちらも初期設定はオフです。必要なときだけ機能の設定でオンにしてください。MJSの軽減8%・MF税区分の読み替え・補助科目や部門の最終的な名前合わせには実機未確認の部分があります。入力された区分・科目・摘要を必ず確認してください。</p></div>
+</div></details>
+<p class="tutorial-hint">2026年10月16日：月次分析・決算予測・試算表の一括PDF出力に操作動画と場面移動ボタンを追加しました（ガイドのみの更新）。</p>
 <details class="ver" open>
 <summary>v4.34.0<small>v4.33.0 → v4.34.0（2026年10月27日）</small></summary>
 <div class="body"><p><a href="https://drive.google.com/file/d/1j7Cj9-8-SeRpwG0S4qgMTvBGk4AZFUXg/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">v4.34.0 初回導入・更新共通ZIPを開く（Driveでダウンロード）</a> ／ <a href="https://drive.google.com/file/d/1QNXGJQAl5K3t1C-9pXNssc2q53l134wO/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">主な更新内容の紹介画像を見る</a></p>
@@ -616,7 +664,6 @@
 <h3>② 前期比較の単月・累計表示</h3><p>「単月＋累計を並べて表示」ボタンで、左に単月、右に累計を表示してA4横で印刷できます。「月次財務分析」をオンにして使用してください。</p>
 <h3>③ ストレージの一括保存</h3><p>表示中のページで選んだPDF・CSVを、指定フォルダ内の新しいフォルダへまとめて保存できます。ZIPではありません。</p>
 <p>新機能の実機確認済み報告をGitHubの開発記録で確認しています。A4印刷時の細かい文字の読みやすさ、Chromeの保護フォルダを選べない場合の案内表示は引き続き確認事項です。詳しい使い方は各機能の説明をご覧ください。</p></div></details>
-<details class="ver"> を1つ追加する -->
 <details class="ver" open>
 <summary>v4.33.0<small>v4.32.0 → v4.33.0（2026年10月20日）</small></summary>
 <div class="body"><p><a href="https://drive.google.com/file/d/1m4NIH_fGpVeti7zWfV7XgiycL9PJBMsT/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">v4.33.0 初回導入・更新共通ZIPを開く（Driveでダウンロード）</a> ／ <a href="https://drive.google.com/file/d/1TeO6G4kgFRbG8A1NkTG7ME50fftl5afk/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">主な更新内容の紹介画像を見る</a></p>
@@ -983,6 +1030,3 @@ window.addEventListener('hashchange',function(){mark(location.hash.slice(1));});
 mark(location.hash.slice(1));
 })();</script></body>
 </html>
-
-
-
