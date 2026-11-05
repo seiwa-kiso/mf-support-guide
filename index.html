@@ -113,7 +113,7 @@
 <span class="badge">非公式・公開ガイド</span>
 <h1>MF業務サポート 導入・更新ガイド</h1>
 <p>MoneyForwardクラウド会計などの業務を助ける Chrome 拡張機能の、導入・更新方法と更新情報です。</p>
-<p>最新バージョン：<strong>v4.38.0</strong>　（旧名称：MoneyForward 監査ツール）</p>
+<p>最新バージョン：<strong>v4.39.0</strong>　（旧名称：MoneyForward 監査ツール）</p>
 </div>
 </header>
 <nav class="toc"><div class="wrap">
@@ -146,14 +146,16 @@
 <li><a href="#f-mgmt" data-feature-link>経営状況レポート</a></li>
 <li><a href="#f-forecast" data-feature-link>決算予測</a></li>
 </ul></div>
-<div class="sidebar-group"><h2>帳簿表示・出力<span>9</span></h2><ul>
+<div class="sidebar-group"><h2>帳簿表示・出力<span>11</span></h2><ul>
 <li><a href="#f-trial-print" data-feature-link>試算表の一括PDF出力</a></li>
+<li><a href="#f-mjs-print" data-feature-link>試算表のMJS書式PDF出力</a></li>
 <li><a href="#f-compare-month" data-feature-link>前期比較の単月・累計表示</a></li>
 <li><a href="#f-storage-bulk" data-feature-link>ストレージの一括保存</a></li>
 <li><a href="#f-ledger" data-feature-link>元帳の横開き表示</a></li>
 <li><a href="#f-compound" data-feature-link>元帳の諸口の中身表示</a></li>
 <li><a href="#f-ratio" data-feature-link>対売上高比率の表示</a></li>
 <li><a href="#f-dept-export" data-feature-link>部門別Excel／PDF一括出力</a></li>
+<li><a href="#f-office-switch" data-feature-link>事業者（顧問先）のかんたん切替</a></li>
 <li><a href="#f-term" data-feature-link>年度の一覧切り替え</a></li>
 <li><a href="#f-home" data-feature-link>ホームの連携サービス表示</a></li>
 </ul></div>
@@ -185,13 +187,15 @@
 <a class="fcard" href="#f-mgmt"><span class="ico">📊</span><h3>経営状況レポート</h3><p>推移表から、経営者向けのA3横・3枚のレポートを作ります。</p></a>
 <a class="fcard" href="#f-forecast"><span class="ico">📉</span><h3>決算予測</h3><p>推移表から、予測方法や調整事項を設定してA4横・2枚の決算予測資料を作ります。 操作動画あり。</p></a>
 <a class="fcard" href="#f-trial-print"><span class="ico">📄</span><h3>試算表の一括PDF出力</h3><p>画面ごとに出力する表を選び、まとめてA4横のPDFにします。旧版の操作動画あり。</p></a>
+<a class="fcard" href="#f-mjs-print"><span class="ico">📄</span><h3>試算表のMJS書式PDF出力 <span class="feature-new">NEW</span></h3><p>残高試算表など4種類の帳票をMJSに近い書式で、A4横のPDFにします。</p></a>
 <a class="fcard" href="#f-compare-month"><span class="ico">📊</span><h3>前期比較の単月・累計表示</h3><p>前期比較の単月と累計を左右に並べ、A4横で印刷できます。</p></a>
 <a class="fcard" href="#f-storage-bulk"><span class="ico">📂</span><h3>ストレージの一括保存</h3><p>チェックしたファイルを、選んだフォルダの中へまとめて保存します。</p></a>
 <a class="fcard" href="#f-ledger"><span class="ico">↔️</span><h3>元帳の横開き表示</h3><p>推移表の金額をクリックして、元帳を右側に開きます。</p></a>
 <a class="fcard" href="#f-compound"><span class="ico">🔎</span><h3>元帳の諸口の中身表示</h3><p>総勘定元帳・補助元帳で、諸口の内訳を行ごと・まとめて開閉します。</p></a>
 <a class="fcard" href="#f-ratio"><span class="ico">％</span><h3>対売上高比率の表示</h3><p>損益計算書・製造原価報告書を、売上高に対する比率で表示します。</p></a>
 <a class="fcard" href="#f-dept-export"><span class="ico">🗂️</span><h3>部門別Excel／PDF一括出力</h3><p>全部門分の推移表を、まとめて出力します。</p></a>
-<a class="fcard" href="#f-term"><span class="ico">📅</span><h3>年度の一覧切り替え</h3><p>作成済みの年度へ、一覧から直接切り替えます。</p></a>
+<a class="fcard" href="#f-office-switch"><span class="ico">🏢</span><h3>事業者（顧問先）のかんたん切替 <span class="feature-new">NEW</span></h3><p>クラウド会計・クラウド給与で、右上から事業者を検索して切り替えます。</p></a>
+<a class="fcard" href="#f-term"><span class="ico">📅</span><h3>年度の一覧切り替え <span class="feature-new">改善</span></h3><p>年度表示にマウスを乗せると、作成済み年度の一覧が開きます。</p></a>
 <a class="fcard" href="#f-home"><span class="ico">🏠</span><h3>ホームの連携サービス表示</h3><p>連携サービスの一覧を、画面の幅に合わせて広げます。</p></a>
 <a class="fcard" href="#f-box"><span class="ico">📁</span><h3>クラウドBox 取引日の一括編集</h3><p>複数ファイルの取引日を、まとめて変更します。</p></a>
 <a class="fcard" href="#f-calendar"><span class="ico">📆</span><h3>日付カレンダーの土日祝表示</h3><p>請求書・見積書・納品書・領収書の日付選択を補助します。</p></a>
@@ -199,8 +203,8 @@
 <a class="fcard" href="#f-settings"><span class="ico">🔧</span><h3>機能の設定</h3><p>使う機能だけを選べます。</p></a>
 <a class="fcard" href="#f-taxsys-expand"><span class="ico">📂</span><h3>TaxSys 仕訳の自動展開と横幅調整</h3><p>仕訳をまとめて開き、表を画面幅に調整します。初期設定はオフです。</p></a>
 <a class="fcard" href="#f-taxsys-assist"><span class="ico">🧩</span><h3>TaxSys 過去仕訳からルール入力</h3><p>CSVから過去の仕訳を選び、ルールの入力を補助します。初期設定はオフです。</p></a>
-<a class="fcard" href="#f-balance-monthly"><span class="ico">⚖️</span><h3>口座残高の月別照合 <span class="feature-new">NEW</span></h3><p>差額のある月と日別の明細を確認できます。</p></a>
-<a class="fcard" href="#f-loan-manager"><span class="ico">📋</span><h3>借入金管理（試作版） <span class="feature-new">NEW</span></h3><p>返済予定と帳簿残高・銀行引落を照合します。</p></a>
+<a class="fcard" href="#f-balance-monthly"><span class="ico">⚖️</span><h3>口座残高の月別照合</h3><p>差額のある月と日別の明細を確認できます。</p></a>
+<a class="fcard" href="#f-loan-manager"><span class="ico">📋</span><h3>借入金管理（試作版）</h3><p>返済予定と帳簿残高・銀行引落を照合します。</p></a>
 </div>
 <!-- ============ 導入・更新方法 ============ -->
 <h2 id="guide">導入・更新方法</h2>
@@ -505,6 +509,17 @@
 <li>保存されたPDFを開き、会社名・期間・各表の内容と出力漏れを確認します。</li>
 </ol></div>
 </section>
+<section class="feature" id="f-mjs-print">
+<h3>試算表のMJS書式PDF出力 <span class="feature-new">NEW</span></h3>
+<p>クラウド会計で、残高試算表・前期比較・推移表・科目別補助残高をMJSに近い書式でA4横のPDFに出力します。残高試算表では、貸借対照表と損益計算書を左右に並べます。</p>
+<ol class="steps">
+<li>「会計帳簿」から「残高試算表」「前期比較」「推移表」のいずれかを開きます。</li>
+<li>画面右上の「エクスポート」の左にある「MJS書式でPDF出力」を押します。</li>
+<li>出力する帳票と対象月を選び、決算整理を含めるか確認します。会社名は変更でき、会社コードは任意で入力できます。</li>
+<li>「PDFを作成」を押し、保存したPDFを開きます。完了表示に取得できなかった帳票が出たときは、必要な帳票がそろっているか確認してください。</li>
+</ol>
+<div class="note">残高試算表は前月・当月の残高がともに0の科目、科目別補助残高は当月残高が0の補助科目を一部省きます。決算月の推移表で決算整理を含める場合は、最終月と当月迄累計の金額をMF画面と照合してください。印刷はA4横・実際のサイズで行います。既存の「試算表を一括PDF出力」も引き続き使えます。</div>
+</section>
 <section class="feature" id="f-compare-month">
 <h3>前期比較の単月・累計表示</h3>
 <dl><dt>対象画面</dt><dd>会計帳簿 ＞ 前期比較</dd><dt>開き方</dt><dd>「単月＋累計を並べて表示」ボタン</dd><dt>印刷</dt><dd>A4横</dd></dl>
@@ -558,7 +573,18 @@
 <button type="button" data-seek="10" title="補助科目の表示設定を確認する">2 補助科目の表示設定を確認する</button>
 <button type="button" data-seek="20" title="エクスポート横の「Excel」を押す">3 エクスポート横の「Excel」を押す</button>
 <button type="button" data-seek="30" title="部門ごとのシートを確認する">4 部門ごとのシートを確認する</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>会計帳簿 ＞ 推移表を開く</li><li>補助科目の表示設定を確認する</li><li>エクスポート横の「Excel」を押す</li><li>部門ごとのシートを確認する</li></ol></div><div class="tutorial-wrap" data-tutorial="f-dept-export"><h4>実際の操作動画（PDF形式）</h4><video controls playsinline preload="metadata" aria-label="部門別PDF一括出力の操作動画"><source src="videos/PDF%E4%B8%80%E6%8B%AC%E5%87%BA%E5%8A%9B.mp4" type="video/mp4"></video><p class="tutorial-hint">再生・一時停止・巻き戻しに対応。場面移動は動画を4分割した暫定位置です。</p><div class="tutorial-jumps"><button type="button" data-seek="0">1 会計帳簿 ＞ 推移表を開く</button><button type="button" data-seek="10">2 補助科目の表示設定を確認する</button><button type="button" data-seek="20">3 エクスポート横の「PDF」を押す</button><button type="button" data-seek="30">4 部門別PDFをまとめたZIPを確認する</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>会計帳簿 ＞ 推移表を開く</li><li>補助科目の表示設定を確認する</li><li>エクスポート横の「PDF」を押す</li><li>部門別PDFをまとめたZIPを確認する</li></ol></div></section>
-<section class="feature" id="f-term"><h3>年度の一覧から選んで切り替える</h3><dl><dt>対象画面</dt><dd>通常版のMF画面右上の年度表示</dd></dl><ol class="steps"><li>画面右上の年度の部分を押します。</li><li>事業所に作成されている年度の一覧から、期首・期末の日付を確認して対象年度を選びます。</li><li>確認画面は出ず、すぐに選んだ年度へ切り替わります。</li><li>切り替え後の年度を確認します。従来の左右の矢印も使えます。</li></ol><div class="note">年度は「R08/07/01 ～ R09/06/30」のように表示します。ほかのタブのMFも同じ年度になります。新しい年度を作る機能ではありません。仕訳や設定は変更しません。</div></section>
+<section class="feature" id="f-office-switch">
+<h3>事業者（顧問先）のかんたん切替 <span class="feature-new">NEW</span></h3>
+<dl><dt>対象画面</dt><dd>クラウド会計（通常版）・クラウド給与</dd></dl>
+<ol class="steps">
+<li>画面右上の事業者名の隣にある「事業者切替」にマウスを乗せます。クリックでも一覧を開けます。</li>
+<li>事業者名を選びます。名前の一部で検索でき、現在の事業者を除いて候補が1件のときはEnterキーでも切り替えられます。</li>
+<li>画面が再読み込みされたら、右上の事業者名を確認します。会計では、切替先の最新年度が開きます。</li>
+<li>「表示を整理」で、★で上に固定、チェックを外して非表示、ドラッグまたは▲▼で並べ替えができます。終わったら「整理を終える」を押します。</li>
+</ol>
+<div class="note">切替後は、ほかのタブで作業を再開する前にも事業者名と年度を確認してください。会計で過年度を開く場合は、切替後に年度の一覧から選びます。</div>
+</section>
+<section class="feature" id="f-term"><h3>年度の一覧から選んで切り替える <span class="feature-new">改善</span></h3><dl><dt>対象画面</dt><dd>通常版のMF画面右上の年度表示</dd></dl><ol class="steps"><li>画面右上の年度表示にマウスを乗せると一覧が開きます。クリックでも開けます。</li><li>事業所に作成されている年度の一覧から、期首・期末の日付を確認して対象年度を選びます。</li><li>確認画面は出ず、すぐに選んだ年度へ切り替わります。</li><li>切り替え後の年度を確認します。従来の左右の矢印も使えます。</li></ol><div class="note">年度は「R08/07/01 ～ R09/06/30」のように表示します。ほかのタブのMFも同じ年度になります。新しい年度を作る機能ではありません。仕訳や設定は変更しません。</div></section>
 <section class="feature" id="f-home">
 <h3>ホームの連携サービス表示</h3>
 <dl><dt>対象画面</dt><dd>MoneyForward クラウド会計 ホーム</dd><dt>操作方法</dt><dd>自動で動作</dd></dl>
@@ -586,7 +612,7 @@
 <li><strong>一括メール送信から除外：</strong>メールを送らない請求書を対象から除外し、請求書一覧で必要なものを選び直して画面を開き直します。この操作ではメールは送信されません。</li>
 <li><strong>消費税欄の一括設定：</strong>請求書一覧で複数の請求書にチェックを入れ、詳細設定の「消費税欄を表示する」「課税対象外の内訳欄表示」をまとめてオン／オフにします。対象の請求書を変更して保存します。</li>
 </ol>
-<h4>添付ファイルのドラッグ＆ドロップ <span class="feature-new">NEW</span></h4><p>請求書の詳細で「添付ファイル」タブを開き、PDF、CSV、Excel、JPGまたはPNGを添付枠にドロップします。添付が開始されるため、対象の請求書とファイルを先に確認してください。</p>
+<h4>添付ファイルのドラッグ＆ドロップ</h4><p>請求書の詳細で「添付ファイル」タブを開き、PDF、CSV、Excel、JPGまたはPNGを添付枠にドロップします。添付が開始されるため、対象の請求書とファイルを先に確認してください。</p>
 <figure class="update-shot"><a href="images/normal-invoice-drop.webp"><img src="images/normal-invoice-drop.webp" alt="ドラッグ中の「ここにドロップして添付」" loading="lazy"></a><figcaption>ドラッグ中の「ここにドロップして添付」</figcaption></figure>
 <figure class="update-shot"><a href="images/normal-invoice-notice.webp"><img src="images/normal-invoice-notice.webp" alt="対象外形式をドロップしたときの案内" loading="lazy"></a><figcaption>対象外形式をドロップしたときの案内</figcaption></figure>
 </section>
@@ -636,18 +662,28 @@
 <p class="tutorial-hint">科目・補助科目・課税区分・摘要文言の入力、および課税区分の「(30)」「(40)」の選択肢は開発者の実機確認記録があります（2026年10月28日）。補助科目・部門の最終的な名前合わせ等は上記のとおり未確認です。操作動画は準備でき次第追加します。</p>
 <figure class="update-shot"><a href="images/normal-taxsys.webp"><img src="images/normal-taxsys.webp" alt="MF形式の入力例。税率と借方・貸方の税区分が対象外の例" loading="lazy"></a><figcaption>MF形式の入力例。税率と借方・貸方の税区分が対象外の例</figcaption></figure>
 </section>
-<section class="feature" id="f-balance-monthly"><h3>口座残高の月別照合 <span class="feature-new">NEW</span></h3><p>口座残高と帳簿残高を月末ごとに比較し、差額がある日と該当明細を確認できます。</p><ol class="steps"><li>口座残高照合の一覧で「差額のある月を探す」を押すか、口座の詳細で「月別に照合する」を押します。</li><li>結果で月末の残高と差額を確認します。差額は帳簿残高から口座残高を引いた金額です。</li><li>「日別を見る」で差額が変わった日を確認し、「この日の明細へ」で明細に移動します。</li></ol><div class="note"><p>取得できなかった月は「取得できません」と表示されます。一覧で複数口座を調べると数分かかることがあります。</p></div><figure class="update-shot"><a href="images/normal-balance-list.webp"><img src="images/normal-balance-list.webp" alt="銀行口座一覧の「差額のある月を探す」" loading="lazy"></a><figcaption>銀行口座一覧の「差額のある月を探す」</figcaption></figure>
+<section class="feature" id="f-balance-monthly"><h3>口座残高の月別照合</h3><p>口座残高と帳簿残高を月末ごとに比較し、差額がある日と該当明細を確認できます。</p><ol class="steps"><li>口座残高照合の一覧で「差額のある月を探す」を押すか、口座の詳細で「月別に照合する」を押します。</li><li>結果で月末の残高と差額を確認します。差額は帳簿残高から口座残高を引いた金額です。</li><li>「日別を見る」で差額が変わった日を確認し、「この日の明細へ」で明細に移動します。</li></ol><div class="note"><p>取得できなかった月は「取得できません」と表示されます。一覧で複数口座を調べると数分かかることがあります。</p></div><figure class="update-shot"><a href="images/normal-balance-list.webp"><img src="images/normal-balance-list.webp" alt="銀行口座一覧の「差額のある月を探す」" loading="lazy"></a><figcaption>銀行口座一覧の「差額のある月を探す」</figcaption></figure>
 <figure class="update-shot"><a href="images/normal-balance-monthly.webp"><img src="images/normal-balance-monthly.webp" alt="口座残高と帳簿残高を月別に比較" loading="lazy"></a><figcaption>口座残高と帳簿残高を月別に比較</figcaption></figure>
 <figure class="update-shot"><a href="images/normal-balance-daily.webp"><img src="images/normal-balance-daily.webp" alt="日別表示から「この日の明細へ」" loading="lazy"></a><figcaption>日別表示から「この日の明細へ」</figcaption></figure>
 <figure class="update-shot"><a href="images/normal-balance-jump.webp"><img src="images/normal-balance-jump.webp" alt="移動先で差額が出た行を強調" loading="lazy"></a><figcaption>移動先で差額が出た行を強調</figcaption></figure>
 </section>
-<section class="feature" id="f-loan-manager"><h3>借入金管理（試作版） <span class="feature-new">NEW</span></h3><p>返済予定・帳簿残高・銀行引落を照合する試作版です。</p><ol class="steps"><li>Chromeの拡張機能アイコンから「借入金管理（試作版）を開く」を押します。</li><li>「ダミーデータを開く」で、返済予定・借入残高・仕訳案を確認します。</li><li>入力データは手動で作成した顧問先ごとに切り替えます。</li></ol><div class="note"><p>MFの事業所との自動連携や仕訳登録は行いません。入力した情報はこのChromeに保存されます。</p></div></section>
+<section class="feature" id="f-loan-manager"><h3>借入金管理（試作版）</h3><p>返済予定・帳簿残高・銀行引落を照合する試作版です。</p><ol class="steps"><li>Chromeの拡張機能アイコンから「借入金管理（試作版）を開く」を押します。</li><li>「ダミーデータを開く」で、返済予定・借入残高・仕訳案を確認します。</li><li>入力データは手動で作成した顧問先ごとに切り替えます。</li></ol><div class="note"><p>MFの事業所との自動連携や仕訳登録は行いません。入力した情報はこのChromeに保存されます。</p></div></section>
 <section class="feature" id="f-taxsys"><h3>TaxSys 科目・補助科目の取込（提供終了）</h3><p>この機能は今回の配布版から削除しました。以前の更新履歴は過去の仕様の記録です。現在は利用できません。</p></section>
 <!-- ============ 更新情報 ============ -->
 <h2 id="history">更新情報</h2>
 <p>新しい順に並べています。各バージョンの見出しを押すと開きます。分かりにくい点や不具合、要望は「機能の設定」画面の「ご意見・要望」から送ってください（v4.30.0以降。それ以前は監査画面）。</p>
 <!-- 新しいバージョンは、この直下に追加する -->
-<details class="ver" open><summary>v4.38.0<small>2026年11月4日</small></summary><div class="body"><figure class="update-shot"><a href="images/normal-update.webp"><img src="images/normal-update.webp" alt="主な更新内容" loading="lazy"></a><figcaption>主な更新内容</figcaption></figure>
+<details class="ver" open><summary>v4.39.0<small>2026年11月5日</small></summary>
+<div class="body">
+<figure class="update-shot"><a href="images/mf-v4.39.0-update.webp"><img src="images/mf-v4.39.0-update.webp" alt="v4.39.0の主な更新内容と、ダミーデータで出力したPDFの見本" loading="lazy"></a><figcaption>主な更新内容とPDF出力例（ダミーデータ）</figcaption></figure>
+<ul>
+<li><a href="#f-mjs-print">試算表のMJS書式PDF出力</a>を追加。4種類の帳票を選び、A4横のPDFを作成できます。</li>
+<li><a href="#f-office-switch">事業者（顧問先）のかんたん切替</a>を追加。クラウド会計・クラウド給与で、事業者を検索して切り替えられます。</li>
+<li><a href="#f-term">年度の一覧切り替え</a>を改善。年度表示にマウスを乗せて一覧を開けます。</li>
+</ul>
+<p><a href="https://drive.google.com/drive/folders/1ReYhdObfsJOnxgKJ4Q_li9oy1NdMFmNa" target="_blank" rel="noopener noreferrer">社内配布フォルダを開く</a></p>
+</div></details>
+<details class="ver"><summary>v4.38.0<small>2026年11月4日</small></summary><div class="body"><figure class="update-shot"><a href="images/normal-update.webp"><img src="images/normal-update.webp" alt="主な更新内容" loading="lazy"></a><figcaption>主な更新内容</figcaption></figure>
 <ul><li>口座残高照合に月別・日別表示と明細への移動を追加。</li><li>クラウド請求書にドラッグ＆ドロップでの添付を追加。</li><li>TaxSysの列表示とMF形式の税区分入力を改善。</li><li>借入金管理の試作版を追加。</li></ul><p><a href="https://drive.google.com/file/d/1TiB-F498eWvQ6ki8XbYVbf_JPfeHmUXH/view">v4.38.0 初回導入・更新共通ZIPを開く</a></p></div></details>
 <details class="ver"><summary>v4.37.0<small>前回配布v4.35.0 → v4.37.0（2026年11月3日）</small></summary><div class="body"><p><a href="https://drive.google.com/file/d/1r_jLIUK6BenLOgPwSgeV_ccLGiqphpgw/view?usp=drivesdk">v4.37.0 初回導入・更新共通ZIPを開く</a></p><figure><img src="images/mf-v4.37.0.png" alt="MF業務サポートv4.37.0の主な更新内容" loading="lazy"></figure><h3>証憑を別ウィンドウで確認</h3><p>クリップから証憑を開き、拡大・回転・前後の仕訳への切り替えができます。<a href="#f-voucher">操作手順</a></p><h3>年度切り替え・日付選択の補助</h3><p>作成済み年度へ一覧から切り替えられます。クラウド請求書等のカレンダーには土日祝の色分けを追加しました。年度切り替えは開発版v4.36.0からの機能を含みます。</p><h3>改善・提供終了</h3><p>連携サービスからのルール登録で金融機関・口座の選択と、ルール適用済みの判定を改善しました。TaxSysの表の展開・ルール入力の動作も調整しています。「TaxSys 科目・補助科目の取込」と旧「証憑を連続表示」ボタンは削除しました。複合仕訳のルール登録は含みません。</p><h3>Plusは専用ガイドへ</h3><p>お客さま向けのPlus専用パッケージv1.0.0と<a href="plus.html">専用ガイド</a>を用意しました。通常版とは別のバージョンで管理します。</p><div class="note">証憑表示・年度切り替えには開発者の実機確認記録があります。日付カレンダーの最終的な配色や、証憑のページ送り・複数タブ等の細部は未確認です。</div></div></details>
 <details class="ver" open>
