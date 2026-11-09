@@ -162,7 +162,7 @@
 <li><a href="#f-ledger" data-feature-link>元帳の横開き表示<span class="update-marker update-marker-fix">修正</span></a></li>
 <li><a href="#f-excise-subitem" data-feature-link>消費税集計の補助科目別集計<span class="update-marker update-marker-new">NEW</span></a></li>
 <li><a href="#f-compound" data-feature-link>元帳の諸口の中身表示</a></li>
-<li><a href="#f-ratio" data-feature-link>対売上高比率の表示<span class="update-marker update-marker-fix">修正</span></a></li>
+<li><a href="#f-ratio" data-feature-link>対売上高比率の表示</a></li>
 <li><a href="#f-fit-view" data-feature-link>月次推移表の全体表示切り替え<span class="update-marker update-marker-new">NEW</span></a></li>
 <li><a href="#f-dept-export" data-feature-link>部門別Excel／PDF一括出力</a></li>
 <li><a href="#f-office-switch" data-feature-link>事業者（顧問先）のかんたん切替<span class="update-marker update-marker-new">NEW</span></a></li>
@@ -205,7 +205,7 @@
 <a class="fcard" href="#f-ledger"><span class="ico">↔️</span><h3>元帳の横開き表示 <span class="update-marker update-marker-fix">修正</span></h3><p>推移表・残高試算表・消費税集計から、元帳を右側に開きます。</p></a>
 <a class="fcard" href="#f-excise-subitem"><span class="ico">🧮</span><h3>消費税集計の補助科目別集計 <span class="update-marker update-marker-new">NEW</span></h3><p>補助科目×税区分ごとの税抜金額を照合し、元帳を開けます。</p></a>
 <a class="fcard" href="#f-compound"><span class="ico">🔎</span><h3>元帳の諸口の中身表示</h3><p>総勘定元帳・補助元帳で、諸口の内訳を行ごと・まとめて開閉します。</p></a>
-<a class="fcard" href="#f-ratio"><span class="ico">％</span><h3>対売上高比率の表示 <span class="update-marker update-marker-fix">修正</span></h3><p>損益計算書・製造原価報告書を、売上高に対する比率で表示します。</p></a>
+<a class="fcard" href="#f-ratio"><span class="ico">％</span><h3>対売上高比率の表示</h3><p>損益計算書・製造原価報告書を、売上高に対する比率で表示します。</p></a>
 <a class="fcard" href="#f-fit-view"><span class="ico">↔️</span><h3>月次推移表の全体表示切り替え <span class="update-marker update-marker-new">NEW</span></h3><p>12か月分の横長の表を画面幅に収め、通常の表示へ戻せます。</p></a>
 <a class="fcard" href="#f-dept-export"><span class="ico">🗂️</span><h3>部門別Excel／PDF一括出力</h3><p>全部門分の推移表を、まとめて出力します。</p></a>
 <a class="fcard" href="#f-office-switch"><span class="ico">🏢</span><h3>事業者（顧問先）のかんたん切替 <span class="update-marker update-marker-new">NEW</span></h3><p>クラウド会計・クラウド給与で、右上から事業者を検索して切り替えます。</p></a>
@@ -708,7 +708,7 @@
 <details class="ver"><summary>14. 消込チェック <span class="update-marker update-marker-fix">修正</span></summary><div class="body"><p>補助元帳等で、計上と支払を同額どうしで突き合わせ、消込ができていない金額を強調表示します。画面下の小さな操作ボタンから、監査画面を開かなくても「消込照合」と「一覧・検索」を直接使えます。このボタンは、「合計／差分」が出ているときはその隣に並びます（日付の列と重ならないように）。「×」で小さな「消」ボタンに畳め、「消」を押すと元に戻ります。</p></div></details>
 <details class="ver"><summary>15. AI監査プロンプト生成</summary><div class="body"><p>帳簿の内容から、AI（Claude・ChatGPTなど）に貼り付けられる監査用の文章を作ります。</p></div></details>
 <details class="ver"><summary>16. 総勘定元帳の横開き表示 <span class="update-marker update-marker-fix">修正</span></summary><div class="body"><p>推移表・残高試算表で金額をクリックすると、総勘定元帳・補助元帳を右側に横開き表示します。消費税集計の「勘定科目別税区分集計表」では、科目名・税区分をクリックすると、その税区分の元帳を横開き表示します。</p></div></details>
-<details class="ver"><summary>17. 売上高比率表示（推移表） <span class="update-marker update-marker-fix">修正</span></summary><div class="body"><p>推移表の損益計算書・製造原価報告書で、各行の金額を売上高合計に対する比率(%)に切り替えて表示します。</p></div></details>
+<details class="ver"><summary>17. 売上高比率表示（推移表）</summary><div class="body"><p>推移表の損益計算書・製造原価報告書で、各行の金額を売上高合計に対する比率(%)に切り替えて表示します。</p></div></details>
 <details class="ver"><summary>18. 全体表示（推移表） <span class="update-marker update-marker-new">NEW</span></summary><div class="body"><p>推移表の「全体表示（画面に収める）」ボタンで、12か月分など横に長い表を画面の幅に収まるよう縮小して表示します。もう一度押すと通常の大きさに戻ります（選択は次回も引き継ぎます）。</p></div></details>
 <details class="ver"><summary>19. 消費税集計の補助科目別集計 <span class="update-marker update-marker-new">NEW</span></summary><div class="body"><p>消費税集計の「勘定科目別税区分集計表」の上に「補助科目別に集計」ボタンを出します。押すと、表にある科目の総勘定元帳を1科目ずつ画面の裏で読み込み、勘定科目×補助科目×税区分（税率）ごとの件数と金額（税抜）を表示し、下の「勘定科目別税区分集計表」の各科目の下にも補助科目の行（青い行）を追加します。補助科目の名前を押すと、その補助元帳が横開きで開きます。税率で絞り込め、Excel用にコピー・CSV保存ができます。科目が多いと数分かかります（中止できます）。読み取った内容はこの画面の中だけで使い、保存も送信もしません。</p></div></details>
 <details class="ver"><summary>20. 部門別推移の一括出力（推移表）</summary><div class="body"><p>推移表で、全部門の損益計算書・製造原価報告書をまとめて出力します。Excelは部門ごとにシートを分けた1ファイル、PDFはMF純正のPDFを部門ごとに取得してZIPにまとめます（補助科目は「補助科目を表示」のチェックに従います）。</p></div></details>
