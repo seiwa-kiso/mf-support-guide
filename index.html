@@ -127,11 +127,12 @@
 </div></nav>
 <div class="guide-layout">
 <aside class="guide-sidebar" aria-label="機能一覧"><details id="sidebar-disclosure" open><summary>機能一覧 <span>30</span></summary><nav class="sidebar-content" aria-label="機能別の操作ガイド"><a class="sidebar-overview" href="#list">すべての機能を見る</a>
-<div class="sidebar-group"><h2>入力・修正<span>4</span></h2><ul>
+<div class="sidebar-group"><h2>入力・修正<span>5</span></h2><ul>
 <li><a href="#f-line-edit" data-feature-link>仕訳帳 明細の一括修正</a></li>
 <li><a href="#f-subitem" data-feature-link>補助科目クイック追加</a></li>
 <li><a href="#f-dict" data-feature-link>摘要辞書</a></li>
 <li><a href="#f-rule" data-feature-link>自動仕訳ルールの登録補助</a></li>
+<li><a href="#f-item-purge" data-feature-link>勘定科目の一括削除（慎重に利用）</a></li>
 </ul></div>
 <div class="sidebar-group"><h2>監査・チェック<span>6</span></h2><ul>
 <li><a href="#f-keshikomi" data-feature-link>消込チェック</a></li>
@@ -146,12 +147,13 @@
 <li><a href="#f-mgmt" data-feature-link>経営状況レポート</a></li>
 <li><a href="#f-forecast" data-feature-link>決算予測</a></li>
 </ul></div>
-<div class="sidebar-group"><h2>帳簿表示・出力<span>11</span></h2><ul>
+<div class="sidebar-group"><h2>帳簿表示・出力<span>12</span></h2><ul>
 <li><a href="#f-trial-print" data-feature-link>試算表の一括PDF出力</a></li>
 <li><a href="#f-mjs-print" data-feature-link>試算表のMJS書式PDF出力</a></li>
 <li><a href="#f-compare-month" data-feature-link>前期比較の単月・累計表示</a></li>
 <li><a href="#f-storage-bulk" data-feature-link>ストレージの一括保存</a></li>
 <li><a href="#f-ledger" data-feature-link>元帳の横開き表示</a></li>
+<li><a href="#f-excise-subitem" data-feature-link>消費税集計の補助科目別集計</a></li>
 <li><a href="#f-compound" data-feature-link>元帳の諸口の中身表示</a></li>
 <li><a href="#f-ratio" data-feature-link>対売上高比率の表示</a></li>
 <li><a href="#f-dept-export" data-feature-link>部門別Excel／PDF一括出力</a></li>
@@ -177,6 +179,7 @@
 <a class="fcard" href="#f-subitem"><span class="ico">➕</span><h3>補助科目クイック追加</h3><p>画面を離れずに、補助科目をすばやく追加します。</p></a>
 <a class="fcard" href="#f-dict"><span class="ico">📖</span><h3>摘要辞書</h3><p>短縮語から、登録済みの摘要を入力します。</p></a>
 <a class="fcard" href="#f-rule"><span class="ico">⚙️</span><h3>自動仕訳ルールの登録補助</h3><p>連携サービスの明細から、ルール新規作成画面を開きます。</p></a>
+<a class="fcard" href="#f-item-purge"><span class="ico">🗑️</span><h3>勘定科目の一括削除 <span class="feature-new">NEW</span></h3><p>MFが削除可能とする科目を選んで削除します。初期オフ・実削除未検証。</p></a>
 <a class="fcard" href="#f-keshikomi"><span class="ico">✅</span><h3>消込チェック</h3><p>未消込の売掛金・買掛金等を、帳簿上で強調表示します。</p></a>
 <a class="fcard" href="#f-anomaly"><span class="ico">🔍</span><h3>いつもと違う仕訳</h3><p>取引先ごとの、普段と違う勘定科目・金額・税区分を知らせます。</p></a>
 <a class="fcard" href="#f-aiprompt"><span class="ico">🤖</span><h3>AI監査プロンプト</h3><p>仕訳帳・総勘定元帳の内容を、AIに確認させる文章に整えて書き出します。</p></a>
@@ -190,7 +193,8 @@
 <a class="fcard" href="#f-mjs-print"><span class="ico">📄</span><h3>試算表のMJS書式PDF出力 <span class="feature-new">NEW</span></h3><p>残高試算表など4種類の帳票をMJSに近い書式で、A4横のPDFにします。</p></a>
 <a class="fcard" href="#f-compare-month"><span class="ico">📊</span><h3>前期比較の単月・累計表示</h3><p>前期比較の単月と累計を左右に並べ、A4横で印刷できます。</p></a>
 <a class="fcard" href="#f-storage-bulk"><span class="ico">📂</span><h3>ストレージの一括保存</h3><p>チェックしたファイルを、選んだフォルダの中へまとめて保存します。</p></a>
-<a class="fcard" href="#f-ledger"><span class="ico">↔️</span><h3>元帳の横開き表示</h3><p>推移表の金額をクリックして、元帳を右側に開きます。</p></a>
+<a class="fcard" href="#f-ledger"><span class="ico">↔️</span><h3>元帳の横開き表示</h3><p>推移表・残高試算表・消費税集計から、元帳を右側に開きます。</p></a>
+<a class="fcard" href="#f-excise-subitem"><span class="ico">🧮</span><h3>消費税集計の補助科目別集計 <span class="feature-new">NEW</span></h3><p>補助科目×税区分ごとの税抜金額を照合し、元帳を開けます。</p></a>
 <a class="fcard" href="#f-compound"><span class="ico">🔎</span><h3>元帳の諸口の中身表示</h3><p>総勘定元帳・補助元帳で、諸口の内訳を行ごと・まとめて開閉します。</p></a>
 <a class="fcard" href="#f-ratio"><span class="ico">％</span><h3>対売上高比率の表示</h3><p>損益計算書・製造原価報告書を、売上高に対する比率で表示します。</p></a>
 <a class="fcard" href="#f-dept-export"><span class="ico">🗂️</span><h3>部門別Excel／PDF一括出力</h3><p>全部門分の推移表を、まとめて出力します。</p></a>
@@ -301,6 +305,7 @@
 </section>
 <!-- ============ 機能の詳細 ============ -->
 <h2 id="detail">機能の詳細</h2>
+<section class="feature" id="f-item-purge"><h3>勘定科目の一括削除 <span class="feature-new">NEW</span></h3><p>他社会計ソフトから移行した際などに誤って作成した不要な勘定科目・補助科目を、MF側で削除可能なものに限り選んで削除します。通常版専用・初期設定オフです。</p><ol class="steps"><li>拡張機能の設定で本機能をオンにし、勘定科目設定を開きます。</li><li>「科目を一括削除」で候補を開き、残す科目のチェックを外します。</li><li>表示された候補を再確認し、「削除」と入力して実行します。</li><li>完了後に削除件数と失敗した科目を確認して再読み込みします。</li></ol><div class="note"><strong>注意：</strong>削除した科目は元に戻せません。実データを削除する実機試験は未実施です。運用中の顧問先では使用せず、バックアップと検証用事業者での動作確認後に限り利用してください。</div></section>
 <section class="feature" id="f-line-edit">
 <h3>仕訳帳 明細の一括修正</h3>
 <dl><dt>対象画面</dt><dd>会計帳簿 ＞ 仕訳帳</dd><dt>操作方法</dt><dd>「明細を一括修正」→ 絞り込み → 行にチェック → 変更内容を指定 → 確認して保存</dd></dl>
@@ -543,6 +548,7 @@
 <button type="button" data-seek="10" title="確認したい金額をクリックする">2 確認したい金額をクリックする</button>
 <button type="button" data-seek="20" title="右側に開いた元帳を確認する">3 右側に開いた元帳を確認する</button>
 <button type="button" data-seek="30" title="明細・日別残高を確認する">4 明細・日別残高を確認する</button><button type="button" data-rewind="10">↶ 10秒戻す</button></div><h4>動画の操作手順</h4><ol class="steps"><li>推移表または残高試算表を開く</li><li>確認したい金額をクリックする</li><li>右側に開いた元帳を確認する</li><li>明細・日別残高を確認する</li></ol></div></section>
+<section class="feature" id="f-excise-subitem"><h3>消費税集計の補助科目別集計 <span class="feature-new">NEW</span></h3><p>「決算・申告 ＞ 消費税集計」の勘定科目別税区分集計表で「補助科目別に集計」を押すと、補助科目のある科目の元帳を読み、勘定科目・補助科目・税区分ごとの件数と税抜の借方・貸方金額を表示します。</p><ol class="steps"><li>対象期間を指定し、消費税集計を更新します。</li><li>「補助科目別に集計」を押し、読み込みの完了を確認します。</li><li>下の集計表に追加された補助科目行を確認し、科目名や税区分から補助元帳を横開きできます。</li><li>必要に応じて税率で絞り込み、Excel用コピーまたはCSVで出力します。</li></ol><div class="note">消費税額は表示しません。MFの元の集計とは別計算のため、金額の照合が必要です。200件を超える元帳のページ送り、諸口を開いた状態は未確認。読み込み失敗や途中終了がある場合は結果が不完全です。</div></section>
 <section class="feature" id="f-compound">
 <h3>元帳の諸口の中身表示</h3>
 <dl><dt>対象画面</dt><dd>総勘定元帳・補助元帳</dd><dt>操作方法</dt><dd>諸口の行の摘要欄にある「▶ 諸口」。画面下の「すべて開く」「すべて閉じる」でも操作できます。</dd></dl>
@@ -673,6 +679,8 @@
 <h2 id="history">更新情報</h2>
 <p>新しい順に並べています。各バージョンの見出しを押すと開きます。分かりにくい点や不具合、要望は「機能の設定」画面の「ご意見・要望」から送ってください（v4.30.0以降。それ以前は監査画面）。</p>
 <!-- 新しいバージョンは、この直下に追加する -->
+<details class="ver" open><summary>v4.42.0<small>2026年11月9日</small></summary><div class="body"><ul><li><a href="#f-excise-subitem">消費税集計の補助科目別集計</a>を追加。補助科目×税区分の税抜金額を表示し、補助元帳へ移動できます。</li><li><a href="#f-ledger">消費税集計からの元帳横開き</a>に対応しました。</li><li><a href="#f-item-purge">勘定科目の一括削除</a>を追加（初期オフ、実削除未検証）。</li><li>前期比較の単月・累計表示にExcel用コピー・CSV保存を追加しました。</li></ul><p>補助科目別集計の通常操作は開発者が実機確認済みですが、200件超の元帳・諸口の確認は未完了です。配布前に実機検証とZIPの内容照合を行ってください。</p></div></details>
+<details class="ver"><summary>v4.41.0・v4.40.0<small>2026年11月5日～8日の変更</small></summary><div class="body"><p>事業者切替の会計・給与別設定、試算表MJS書式PDF出力の調整などを実施しました。MJS書式PDFの決算整理を含む場合は、実際の金額と必ず照合してください。</p></div></details>
 <details class="ver" open><summary>v4.39.0<small>2026年11月5日</small></summary>
 <div class="body">
 <figure class="update-shot"><a href="images/mf-v4.39.0-update.webp"><img src="images/mf-v4.39.0-update.webp" alt="v4.39.0の主な更新内容と、ダミーデータで出力したPDFの見本" loading="lazy"></a><figcaption>主な更新内容とPDF出力例（ダミーデータ）</figcaption></figure>
