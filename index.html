@@ -581,7 +581,7 @@
 <li>摘要欄の「▶ 諸口」を押して、薄い青の内訳行を確認します。借方・貸方の全行と相手税区分・部門が表示され、元帳の行に対応する明細には「（元帳のこの行）」という目印が付きます。</li>
 <li>同じボタン（「▼ 諸口」）を押すと閉じます。画面下の「合計／差分」の左隣にある「すべて開く」「すべて閉じる」で、画面内の諸口をまとめて開閉できます。</li>
 <li>必要に応じて、開いた内訳行の金額をドラッグし、「合計／差分」で確認します。この集計は併用する拡張機能の機能です。</li>
-</ol><div class="note"><p>表示だけの機能で、仕訳は変更しません。部門情報が取得できないときは部門欄が空欄になります。部門入り仕訳での実機確認は未実施です。期間の指定が必要です。件数によって読み込みに時間がかかります。表示できない場合は、従来の「詳細」で確認してください。拡張機能アイコンから個別にオフにできます。</p></div>
+</ol><div class="note"><p>表示だけの機能で、仕訳は変更しません。部門情報が取得できないときは部門欄が空欄になります。部門入り仕訳での表示は開発者が実機確認済みです。期間の指定が必要です。件数によって読み込みに時間がかかります。表示できない場合は、従来の「詳細」で確認してください。拡張機能アイコンから個別にオフにできます。</p></div>
 <p class="tutorial-hint">総勘定元帳・補助元帳での表示・開閉・一括開閉、内訳の金額のドラッグと、件数の多い元帳での速さは開発者が実機確認済み（2026年10月20日）。</p>
 </section>
 <section class="feature" id="f-ratio">
@@ -748,7 +748,7 @@
 <p>新しい順に並べています。各バージョンの見出しを押すと開きます。分かりにくい点や不具合、要望は「機能の設定」画面の「ご意見・要望」から送ってください（v4.30.0以降。それ以前は監査画面）。</p>
 <!-- 新しいバージョンは、この直下に追加する -->
 <p><a href="https://drive.google.com/file/d/1x21KvJOTOhtKd40XVMwn1SswsXSB4WwZ/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">通常版 v4.44.2 配布ZIP（初回導入・更新共通）</a> ／ <a href="https://drive.google.com/file/d/18iCSe3p5E2dGmiN83MF0_jqq3TBfU4tx/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">v4.44.2 紹介画像</a></p>
-<details class="ver" open><summary>v4.44.2<small>2026年11月11日・ガイド更新</small></summary><div class="body"><ul><li><a href="#f-mgmt">経営状況レポート</a>を改善。AIの回答を確認した後、良いところ・改善案・要確認の掲載有無を選び、説明文を編集・追加できます。</li><li>業種に応じた見方をAIに渡す文章へ追加できます（金融庁「業種別支援の着眼点」を参考）。</li><li>確認した要確認事項は「確認済み」として結果を載せるか、資料から除外できます。</li><li><a href="#f-compound">元帳の「諸口」の内訳表示</a>で部門名も確認できるように改善しました（部門がある実際の仕訳での表示は未検証）。</li></ul><p>通常版のみの更新です。配布用ZIPはGoogle Driveへ保存済みです。レポートのA4横印刷・編集後の実機確認は未完了です。</p></div></details>
+<details class="ver" open><summary>v4.44.2<small>2026年11月11日・ガイド更新</small></summary><div class="body"><ul><li><a href="#f-mgmt">経営状況レポート</a>を改善。AIの回答を確認した後、良いところ・改善案・要確認の掲載有無を選び、説明文を編集・追加できます。</li><li>業種に応じた見方をAIに渡す文章へ追加できます（金融庁「業種別支援の着眼点」を参考）。</li><li>確認した要確認事項は「確認済み」として結果を載せるか、資料から除外できます。</li><li><a href="#f-compound">元帳の「諸口」の内訳表示</a>で部門名も確認できるように改善しました（部門表示は開発者が実機確認済み）。</li></ul><p>通常版のみの更新です。配布用ZIPはGoogle Driveへ保存済みです。レポートのA4横印刷・編集後の実機確認は未完了です。</p></div></details>
 <p><a href="https://drive.google.com/file/d/1AoMa3FMyIH_zu4r9djhiwV3c-fEqUICo/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">旧版 v4.42.0 配布ZIP（過去版）</a> ／ <a href="https://drive.google.com/file/d/1DLZOQbG0xfwtm0EMk6DEU3sQzd5rRm67/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">今回の紹介画像</a></p>
 <details class="ver" open><summary>v4.42.0<small>2026年11月9日</small></summary><div class="body"><ul><li><a href="#f-excise-subitem">消費税集計の補助科目別集計</a>を追加。補助科目×税区分の税抜金額を表示し、補助元帳へ移動できます。</li><li><a href="#f-ledger">消費税集計からの元帳横開き</a>に対応しました。</li><li><a href="#f-item-purge">勘定科目の一括削除</a>を追加（初期オフ）。</li><li><a href="#f-fit-view">推移表の全体表示切り替え</a>を追加。画面幅に収める表示と通常表示を切り替えられます。</li><li><a href="#f-rule-keep">ルール更新なしで明細を登録</a>に対応しました。</li><li><a href="#f-keshikomi">消込照合の直接操作と一覧検索</a>をガイドに追記しました。</li><li>前期比較の単月・累計表示にExcel用コピー・CSV保存を追加しました。</li></ul><p>集計結果の金額は元帳やMF標準の集計表と照合してください。配布前にZIPの内容を照合してください。</p></div></details>
 <details class="ver"><summary>v4.41.0・v4.40.0<small>2026年11月5日～8日の変更</small></summary><div class="body"><p>事業者切替の会計・給与別設定、試算表MJS書式PDF出力の調整などを実施しました。MJS書式PDFの決算整理を含む場合は、実際の金額と必ず照合してください。</p></div></details>
