@@ -119,7 +119,7 @@
 <span class="badge">非公式・公開ガイド</span>
 <h1>MF業務サポート 導入・更新ガイド</h1>
 <p>MoneyForwardクラウド会計などの業務を助ける Chrome 拡張機能の、導入・更新方法と更新情報です。</p>
-<p>GitHub最新版：<strong>v4.42.0</strong>（最新版ZIPを配布中）　（旧名称：MoneyForward 監査ツール）</p>
+<p>GitHubソース最新版：<strong>v4.44.2</strong>（配布ZIPは準備中。直下のv4.42.0のZIPは旧版です）　（旧名称：MoneyForward 監査ツール）</p>
 </div>
 </header>
 <nav class="toc"><div class="wrap">
@@ -151,7 +151,7 @@
 </ul></div>
 <div class="sidebar-group"><h2>分析・レポート<span>3</span></h2><ul>
 <li><a href="#f-monthly" data-feature-link>月次分析</a></li>
-<li><a href="#f-mgmt" data-feature-link>経営状況レポート</a></li>
+<li><a href="#f-mgmt" data-feature-link>経営状況レポート<span class="update-marker update-marker-fix">修正</span></a></li>
 <li><a href="#f-forecast" data-feature-link>決算予測</a></li>
 </ul></div>
 <div class="sidebar-group"><h2>帳簿表示・出力<span>13</span></h2><ul>
@@ -206,7 +206,7 @@
 <a class="fcard" href="#f-voucher"><span class="ico">🧾</span><h3>証憑を別ウィンドウで確認</h3><p>仕訳帳の証憑を別ウィンドウに並べ、前後の仕訳へ切り替えます。</p></a>
 <a class="fcard" href="#f-tag"><span class="ico">🏷️</span><h3>突合タグ付け</h3><p>照合済みの仕訳行にタグを付けます。</p></a>
 <a class="fcard" href="#f-monthly"><span class="ico">📈</span><h3>月次分析</h3><p>推移表と前期比較から、変動の大きい科目を抽出します。 操作動画あり。</p></a>
-<a class="fcard" href="#f-mgmt"><span class="ico">📊</span><h3>経営状況レポート</h3><p>推移表から、経営者向けのA3横・3枚のレポートを作ります。</p></a>
+<a class="fcard" href="#f-mgmt"><span class="ico">📊</span><h3>経営状況レポート <span class="update-marker update-marker-fix">修正</span></h3><p>主要指標・グラフとAI回答をまとめ、説明文の編集・追加、要確認事項の掲載設定や業種別の見方に対応します。</p></a>
 <a class="fcard" href="#f-forecast"><span class="ico">📉</span><h3>決算予測</h3><p>推移表から、予測方法や調整事項を設定してA4横・2枚の決算予測資料を作ります。 操作動画あり。</p></a>
 <a class="fcard" href="#f-trial-print"><span class="ico">📄</span><h3>試算表の一括PDF出力 <span class="update-marker update-marker-fix">修正</span></h3><p>画面ごとに出力する表を選び、まとめてA4横のPDFにします。旧版の操作動画あり。</p></a>
 <a class="fcard" href="#f-mjs-print"><span class="ico">📄</span><h3>試算表のMJS書式PDF出力 <span class="update-marker update-marker-new">NEW</span></h3><p>残高試算表など4種類の帳票をMJSに近い書式で、A4横のPDFにします。</p></a>
@@ -448,9 +448,10 @@
 </ol></div>
 </section>
 <section class="feature" id="f-mgmt">
-<h3>経営状況レポート</h3>
+<h3>経営状況レポート <span class="update-marker update-marker-fix">修正</span></h3>
 <dl><dt>対象画面</dt><dd>会計帳簿 ＞ 推移表（MJS版は mjs-report.html）</dd><dt>操作方法</dt><dd>当期と前期の推移表を取り込む → AIの回答を貼り付け → 印刷</dd></dl>
 <p>主要な経営指標とグラフ、良いところ・改善ポイントを整理します。MJSの推移表CSVから作る単独HTML版（v4.29.0）もあり、MFを使っていない顧問先にも使えます。MJS版の印刷結果は未確認です。</p>
+<h4>v4.44.2で追加・改善した使い方</h4><ol class="steps"><li>当期・前期の推移表を取り込んで数値を確認します。</li><li>必要に応じて業種を指定し、「AIに渡す文章」をコピーして生成AIへ手動で貼り付けます。</li><li>AIの回答を貼り戻し、内容を確認します。</li><li>良いところ・改善案・要確認について、掲載する内容を選択し、文章を修正・追加します。</li><li>要確認事項の検証が済んだ場合は「確認済み」として結果を記載するか、掲載しない設定にします。</li><li>別ウィンドウのレポートを開き、用紙・ページ数・数値と文章を確認してから印刷します。</li></ol><div class="note">生成AIへの自動送信はしません。記載内容の正確性は帳簿・証憑との照合が必要です。新しい編集機能・A4横印刷の実機検証は未完了です。</div>
 <h4>MJS版の使い方</h4>
 <ol class="steps">
 <li>MJSの出力条件を「推移（決算あり）」「集計方法：月次」「貸借対照表出力：残高を出力」に設定し、CSVを出力します。前期比較する場合は前期も同じ条件で出力します。</li>
@@ -746,6 +747,7 @@
 <h2 id="history">更新情報</h2>
 <p>新しい順に並べています。各バージョンの見出しを押すと開きます。分かりにくい点や不具合、要望は「機能の設定」画面の「ご意見・要望」から送ってください（v4.30.0以降。それ以前は監査画面）。</p>
 <!-- 新しいバージョンは、この直下に追加する -->
+<details class="ver" open><summary>v4.44.2<small>2026年11月11日・ガイド更新</small></summary><div class="body"><ul><li><a href="#f-mgmt">経営状況レポート</a>を改善。AIの回答を確認した後、良いところ・改善案・要確認の掲載有無を選び、説明文を編集・追加できます。</li><li>業種に応じた見方をAIに渡す文章へ追加できます（金融庁「業種別支援の着眼点」を参考）。</li><li>確認した要確認事項は「確認済み」として結果を載せるか、資料から除外できます。</li><li>元帳の諸口の中身表示などについて修正を反映しています。</li></ul><p>通常版のみの更新です。公開ガイドの変更であり、配布ZIPの入れ替え完了を意味しません。レポートのA4横印刷・編集後の実機確認は未完了です。</p></div></details>
 <p><a href="https://drive.google.com/file/d/1AoMa3FMyIH_zu4r9djhiwV3c-fEqUICo/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">通常版 v4.42.0 配布ZIP（初回導入・更新共通）</a> ／ <a href="https://drive.google.com/file/d/1DLZOQbG0xfwtm0EMk6DEU3sQzd5rRm67/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">今回の紹介画像</a></p>
 <details class="ver" open><summary>v4.42.0<small>2026年11月9日</small></summary><div class="body"><ul><li><a href="#f-excise-subitem">消費税集計の補助科目別集計</a>を追加。補助科目×税区分の税抜金額を表示し、補助元帳へ移動できます。</li><li><a href="#f-ledger">消費税集計からの元帳横開き</a>に対応しました。</li><li><a href="#f-item-purge">勘定科目の一括削除</a>を追加（初期オフ）。</li><li><a href="#f-fit-view">推移表の全体表示切り替え</a>を追加。画面幅に収める表示と通常表示を切り替えられます。</li><li><a href="#f-rule-keep">ルール更新なしで明細を登録</a>に対応しました。</li><li><a href="#f-keshikomi">消込照合の直接操作と一覧検索</a>をガイドに追記しました。</li><li>前期比較の単月・累計表示にExcel用コピー・CSV保存を追加しました。</li></ul><p>集計結果の金額は元帳やMF標準の集計表と照合してください。配布前にZIPの内容を照合してください。</p></div></details>
 <details class="ver"><summary>v4.41.0・v4.40.0<small>2026年11月5日～8日の変更</small></summary><div class="body"><p>事業者切替の会計・給与別設定、試算表MJS書式PDF出力の調整などを実施しました。MJS書式PDFの決算整理を含む場合は、実際の金額と必ず照合してください。</p></div></details>
